@@ -3,13 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>Filmoteka</title>
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
-
-
-
+    <header class="header">
+      <div class="container header__container">
+        <a href="./index.html" class="logo__link link">
+          <svg class="logo__icon" width="20" height="20">
+            <use href="./images/icon.svg#icon-filmmoteka-1"></use>
+          </svg>
+          Filmoteka
+        </a>
+        <nav class="navigation">
+          <ul class="navigation__list">
+            <li class="navigation__item list">
+              <a
+                href="./index.html"
+                class="navigation__link link navigation__link--active"
+                >HOME</a
+              >
+            </li>
+            <li class="navigation__item list">
+              <a href="./library.html" class="navigation__link link"
+                >MY LIBRARY</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="container search__container">
+        <form class="search__form">
+          <div class="form__wrap">
+            <input
+              type="text"
+              name="name"
+              class="form__input"
+              id="name"
+              placeholder=" "
+            />
+            <label for="name" class="form__label">Movie search</label>
+            <svg class="form__icon" width="12" height="12">
+              <use href="./images/icon.svg#icon-search"></use>
+            </svg>
+          </div>
+        </form>
+      </div>
+    </header>
+    <main>
+      <div class="section">
+        <div class="container film__container">
+          <ul class="film__list"></ul>
+        </div>
+      </div>
+    </main>
 
     <script src="./index.js"></script>
   </body>
