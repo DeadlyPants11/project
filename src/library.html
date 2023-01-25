@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <a href="./index.html" class="logo__link link">
+          <svg class="logo__icon" width="20" height="20">
+            <use href="./images/icon.svg#icon-filmmoteka-1"></use>
+          </svg>
+          Filmoteka
+        </a>
+        <nav class="navigation">
+          <ul class="navigation__list">
+            <li class="navigation__item list">
+              <a
+                href="./index.html"
+                class="navigation__link link "
+                >HOME</a
+              >
+            </li>
+            <li class="navigation__item list">
+              <a href="./library.html" class="navigation__link link navigation__link--active"
+                >MY LIBRARY</a
+              >
+            </li>
+          </ul>
+        </nav>
+  </div>
+        <div class="container my__library-container">
+          <button class="btn btn__watched" type="button" >WATCHED
+          </button>
+          <button class="btn btn__queue" type="button">QUEUE
+          </button>
+        </div>
+      
     <script src="./library.js"></script>
-</body>
+  </body>
 </html>

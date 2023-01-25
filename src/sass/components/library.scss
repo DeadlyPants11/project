@@ -1,0 +1,25 @@
+.my__library-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn {
+  width: 148px;
+  height: 42px;
+  background: inherit;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+}
+
+.btn:hover,
+.btn:focus {
+  border: none;
+  background: #ff6b01;
+}
