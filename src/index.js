@@ -40,7 +40,7 @@ function onSearchFormSubmit(e) {
   query = form.elements.name.value;
   fetchFilmsByQuery.query = query;
   if (!query) {
-    console.log('earn return');
+    fetchFilmsByQuery.query = fetchFilmsByQuery.lastQuery;
     return;
   }
   fetchFilmsByQuery
@@ -49,15 +49,16 @@ function onSearchFormSubmit(e) {
       if (res.results.length === 0) {
         throw new Error();
       }
-      console.log(fetchFilmsByQuery.query);
-      console.log(res.results.length);
+      fetchFilmsByQuery.resetPage();
       refs.filmContainer.innerHTML = '';
       refs.filmContainer.insertAdjacentHTML(
         'beforeend',
         createFilmCardMarkup(res.results)
       );
     })
-    .catch(error => console.log('catch error input'));
+    .catch(error => {
+      fetchFilmsByQuery.query = fetchFilmsByQuery.lastQuery;
+    });
 }
 
 refs.searchForm.addEventListener('submit', onSearchFormSubmit);
