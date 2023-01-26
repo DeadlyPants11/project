@@ -1,53 +1,63 @@
-import axios from 'axios';
+import FetchFilms from './fetch-films';
+import createFilmCardMarkup from './film-card-markup';
+
+const refs = {
+  filmContainer: document.querySelector('.film__container'),
+  searchForm: document.querySelector('.search__form'),
+};
 
 const KEY = '8378c884a6341b6bb6a7cfb362550079';
-const BASE_URL = 'https://api.themoviedb.org/3';
+const BASE_URL_TRENDING_FILMS =
+  'https://api.themoviedb.org/3/trending/movie/week';
 
-const filmComtainer = document.querySelector('.film__container');
-
-async function getFilmCard(content, page = 1) {
-  try {
-    const responce = await axios.get(
-      `${BASE_URL}/trending/all/week?api_key=${KEY}`
-    );
-    const film = responce.data.results;
-    return film;
-  } catch (error) {
-    return error.message;
-  }
-}
-
-// async function getGenres(params) {
-//   const respons = await axios.get(
-//     `${BASE_URL}/genre/movie/list?api_key=${KEY}`
-//   );
-//   const genres = respons.data.genres;
-//   return genres;
-// }
-
-// async function searchFilm(params, page = 1) {
-//   const respons = await axios.get(`${BASE_URL}/search/movie?api_key=${KEY}`);
-//   const allFilm = respons;
-//   console.log(allFilm);
-//   return allFilm;
-// }
-
-getFilmCard().then(resp => {
-  createMarkup(resp);
+const fetchPopularFilms = new FetchFilms({
+  authKey: KEY,
+  baseUrl: BASE_URL_TRENDING_FILMS,
+  isNeedQuery: false,
 });
 
-function createMarkup(resp) {
-  const filmCard = resp
-    .map(({ poster_path, title, genre_ids, vote_average }) => {
-      return `<div class="film__wrap">
-  <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
-  <ul>
-    <li class="film__item">${title}</li>
-    <li class="film__item">${genre_ids} | ${vote_average}</li>
-  </ul>
-</div>`;
-    })
-    .join('');
+fetchPopularFilms
+  .fetchFilms()
+  .then(res => {
+    refs.filmContainer.insertAdjacentHTML(
+      'beforeend',
+      createFilmCardMarkup(res.results)
+    );
+  })
+  .catch(error => console.log(error));
 
-  filmComtainer.insertAdjacentHTML('beforeend', filmCard);
+const BASE_URL_FILMS = 'https://api.themoviedb.org/3/search/movie';
+
+const fetchFilmsByQuery = new FetchFilms({
+  authKey: KEY,
+  baseUrl: BASE_URL_FILMS,
+  isNeedQuery: true,
+});
+
+function onSearchFormSubmit(e) {
+  e.preventDefault();
+  const form = e.currentTarget;
+  query = form.elements.name.value;
+  fetchFilmsByQuery.query = query;
+  if (!query) {
+    console.log('earn return');
+    return;
+  }
+  fetchFilmsByQuery
+    .fetchFilms()
+    .then(res => {
+      if (res.results.length === 0) {
+        throw new Error();
+      }
+      console.log(fetchFilmsByQuery.query);
+      console.log(res.results.length);
+      refs.filmContainer.innerHTML = '';
+      refs.filmContainer.insertAdjacentHTML(
+        'beforeend',
+        createFilmCardMarkup(res.results)
+      );
+    })
+    .catch(error => console.log('catch error input'));
 }
+
+refs.searchForm.addEventListener('submit', onSearchFormSubmit);
