@@ -7,36 +7,24 @@ const filmComtainer = document.querySelector('.film__container');
 
 async function getFilmCard(content, page = 1) {
   try {
-    console.log(page);
+    // console.log(page);
     const responce = await axios.get(
       `${BASE_URL}/trending/all/week?api_key=${KEY}&page=${page}`
     );
     const film = responce.data;
-    console.log(film);
-    film.page = page;
+    // console.log(film);
+    // film.page = page;
     return film;
   } catch (error) {
     return error.message;
   }
 }
 
-// getFilmCard((page = 1));
-// async function getGenres(params) {
-//   const respons = await axios.get(
-//     `${BASE_URL}/genre/movie/list?api_key=${KEY}`
-//   );
-//   const genres = respons.data.genres;
-//   return genres;
-// }
-
-// async function searchFilm(params, page = 1) {
-//   const respons = await axios.get(`${BASE_URL}/search/movie?api_key=${KEY}`);
-//   const allFilm = respons;
-//   console.log(allFilm);
-//   return allFilm;
-// }
 const paginationUl = document.querySelector('.pagination');
-paginationUl.addEventListener('click', function (event) {
+
+paginationUl.addEventListener('click', onPaginationClick);
+
+function onPaginationClick(event) {
   if (event.target.nodeName.toLowerCase() !== 'li') {
     return;
   }
@@ -64,7 +52,7 @@ paginationUl.addEventListener('click', function (event) {
     createMarkup(resp.results);
     pagination(resp.page, resp.total_pages);
   });
-});
+}
 
 getFilmCard().then(resp => {
   createMarkup(resp.results);
@@ -84,7 +72,8 @@ function createMarkup(resp) {
     })
     .join('');
 
-  filmComtainer.insertAdjacentHTML('beforeend', filmCard);
+  // filmComtainer.insertAdjacentHTML('beforeend', filmCard);
+  filmComtainer.innerHTML = filmCard;
 }
 
 let globalCurrentPage = 0;
@@ -107,10 +96,9 @@ function pagination(currentPage, allPages) {
   let beforePage = currentPage - 1;
   let afterPage = currentPage + 1;
   let afterTwoPages = currentPage + 2;
-  globalCurrentPage = currentPage;
 
   if (currentPage > 1) {
-    markup += `<li>&#129144;</li>`;
+    markup += `<li class="arrow-right">&#129144;</li>`;
     markup += `<li>1</li>`;
   }
 

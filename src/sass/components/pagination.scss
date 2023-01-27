@@ -1,21 +1,38 @@
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: 50%;
+  margin: -1px;
+}
+
 //* Pagination *//
 .pagination {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
+  // max-width: 374px;
+  // margin: 0 auto;
 }
 
 .pagination-container {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .pagination li {
   font-weight: 500;
-  text-align: center;
   font-size: 12px;
   line-height: 1.33;
   padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
