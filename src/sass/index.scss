@@ -1,7 +1,9 @@
 @import './utils/modern-normolize';
+@import './utils/visually-hidden.scss';
 
 @import './base/common';
 
 @import './components/header.scss';
 @import './components/library.scss';
 @import './components/film-container.scss';
+@import './components/modal.scss';
