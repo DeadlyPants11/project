@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { createMarkup } from './markup/markupfilmcard';
 
 const KEY = '8378c884a6341b6bb6a7cfb362550079';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -8,7 +9,7 @@ const filmComtainer = document.querySelector('.film__container');
 async function getFilmCard(content, page = 1) {
   try {
     const responce = await axios.get(
-      `${BASE_URL}/trending/all/week?api_key=${KEY}`
+      `${BASE_URL}/trending/movie/week?api_key=${KEY}`
     );
     const film = responce.data.results;
     return film;
