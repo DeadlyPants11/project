@@ -19,14 +19,18 @@
   position: fixed;
 
   font-weight: 500;
-  // line-height: 1.33;
   font-size: 12px;
 
   background-color: #fff;
 
-  @media screen and (min-width: 1024px) {
-    max-width: 806px;
-    max-height: 558px;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 704px;
+    height: 552px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 806px;
+    height: 558px;
   }
 }
 
@@ -35,14 +39,24 @@
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 40px;
-  @media screen and (min-width: 1024px) {
+
+  @media (min-width: 768px) {
     display: flex;
-    margin: 40px 12px;
+    margin-top: 40px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-left: 36px;
+    margin-right: 72px;
+  }
+  @media (min-width: 1024px) {
+    margin-left: 12px;
+    margin-right: 12px;
   }
 }
 
 .modal-container:last-child {
-  @media screen and (min-width: 1024px) {
+  @media (min-width: 1024px) {
     margin-left: 15px;
   }
 }
@@ -54,7 +68,7 @@
   border-radius: 5px;
   border: 1px solid black;
 
-  @media screen and (min-width: 1024px) {
+  @media (min-width: 1024px) {
     width: 375px;
     height: 478px;
   }
@@ -80,21 +94,30 @@
 
 .modal-info__container {
   margin-top: 20px;
-  @media screen and (min-width: 1024px) {
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-left: 68px;
+    margin-top: 0;
+  }
+  @media (min-width: 1024px) {
+    margin-top: 0;
     margin-left: 16px;
   }
 }
 
 .modal-info__title {
   font-size: 20px;
-  line-height: 1.17;
+  line-height: 1.15;
+  @media (min-width: 1024px) {
+    font-size: 30px;
+  }
 }
 
 .modal-info-table {
-  // display: inline;
   margin: 20px 0px;
-  @media screen and (min-width: 1024px) {
-    line-height: 1.16;
+
+  line-height: 1.33;
+  @media (min-width: 1024px) {
   }
 }
 
@@ -106,7 +129,7 @@
   padding-right: 39px;
 
   color: #8c8c8c;
-  @media screen and (min-width: 1024px) {
+  @media (min-width: 1024px) {
     padding-right: 83px;
   }
 }
@@ -145,6 +168,15 @@
   overflow: auto;
 
   margin-bottom: 20px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 264px;
+    height: 236px;
+  }
+  @media (min-width: 1024px) {
+    width: 391px;
+    height: 184px;
+  }
 }
 
 .modal-button {
@@ -158,7 +190,11 @@
 
   background-color: inherit;
 
-  @media screen and (min-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 125px;
+  }
+
+  @media (min-width: 1024px) {
     width: 136px;
   }
 }
@@ -176,7 +212,7 @@
 
 .modal-info__button-list-item:first-child {
   margin-right: 20px;
-  @media screen and (min-width: 1024px) {
+  @media (min-width: 768px) {
     margin-right: 15px;
   }
 }
