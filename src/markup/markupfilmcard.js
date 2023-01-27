@@ -4,6 +4,7 @@ import axios from 'axios';
 const KEY = '8378c884a6341b6bb6a7cfb362550079';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const GENRES_NAME = 'genresNames';
+const SEARCH_RESULT_QUERY = '';
 const filmComtainer = document.querySelector('.film__container');
 
 async function getGenresArray() {

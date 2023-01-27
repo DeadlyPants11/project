@@ -52,3 +52,17 @@ function createMarkup(resp) {
 
   filmComtainer.insertAdjacentHTML('beforeend', filmCard);
 }
+
+async function onSearchMovie() {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}search/movie?api_key=${KEY}&language=en-US&page=${page}&include_adult=false&query=${inputValue}`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+onSearchMovie.then(response => {
+  localStorage.setItem('SEARCH_RESULT_QUERY', JSON.stringify(response));
+});
