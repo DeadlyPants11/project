@@ -63,6 +63,20 @@ async function onSearchMovie() {
     console.log(error);
   }
 }
-onSearchMovie.then(response => {
-  localStorage.setItem('SEARCH_RESULT_QUERY', JSON.stringify(response));
-});
+function onSearchFilm() {
+  onSearchMovie.then(response => {
+    localStorage.setItem('SEARCH_RESULT_QUERY', JSON.stringify(response));
+  });
+}
+
+function onTrendingSearchFilm() {
+  getFilmCard.then(response => {
+    localStorage.setItem('TREDING_RESULT', JSON.stringify(response));
+  });
+}
+
+function onGenresSearchFilm() {
+  getGenresArray().then(resp => {
+    localStorage.setItem(GENRES_NAME, JSON.stringify(resp));
+  });
+}
