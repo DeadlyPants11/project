@@ -6,6 +6,7 @@
     <title>Filmoteka</title>
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
+
   <body>
     <header class="header">
       <div class="container header__container">
@@ -48,11 +49,12 @@
             </svg>
           </div>
         </form>
+        <p class="container__notification"></p>
       </div>
     </header>
     <main>
       <div class="section">
-        <div class="container film__container"></div>
+        <ul class="container film__container"></ul>
       </div>
 
       <!-- Section pagination -->
@@ -63,6 +65,7 @@
         </div>
       </section>
     </main>
+    <!-- <include src="./partials/modal.html"></include> -->
 
     <script src="./index.js" type="module"></script>
   </body>
