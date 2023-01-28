@@ -63,7 +63,7 @@ getFilmCard().then(resp => {
 
 let globalCurrentPage = 0;
 
-function pagination(currentPage, allPages) {
+export function pagination(currentPage, allPages) {
   const typeOfValue = typeof currentPage;
   if (typeOfValue !== 'number') {
     console.error('currentPage:Not a number');
@@ -81,6 +81,7 @@ function pagination(currentPage, allPages) {
   let beforePage = currentPage - 1;
   let afterPage = currentPage + 1;
   let afterTwoPages = currentPage + 2;
+  globalCurrentPage = currentPage;
 
   if (currentPage > 1) {
     markup += `<li class="arrow-right">&#129144;</li>`;

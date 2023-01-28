@@ -1,5 +1,6 @@
 import FetchFilms from './fetch-films';
 import { createMarkup } from '../markup/markupfilmcard';
+import { pagination } from './pagination';
 const refs = {
   filmContainer: document.querySelector('.film__container'),
   searchForm: document.querySelector('.search__form'),
@@ -31,7 +32,9 @@ function onSearchFormSubmit(e) {
         'beforeend',
         createMarkup(res.results)
       );
+      pagination(res.page, res.total_pages);
     })
+
     .catch(error => {
       fetchFilmsByQuery.query = fetchFilmsByQuery.lastQuery;
     });
