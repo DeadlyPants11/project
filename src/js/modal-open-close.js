@@ -8,8 +8,6 @@ function onCloseModal() {
 }
 
 function onOpenModal(e) {
-  const filmId = e.target.closest('div').hasAttribute('data');
-  console.log(`📌  onOpenModal  filmId`, filmId);
   if (e.target === e.currentTarget) {
     return;
   }
