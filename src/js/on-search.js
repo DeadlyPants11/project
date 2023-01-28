@@ -1,12 +1,13 @@
 import FetchFilms from './fetch-films';
-import { createMarkup } from './markup/markupfilmcard';
-// import { pagination } from './pagination';
+import { createMarkup } from '../markup/markupfilmcard';
+import { pagination } from './pagination';
 const refs = {
   filmContainer: document.querySelector('.film__container'),
   searchForm: document.querySelector('.search__form'),
+  notification: document.querySelector('.container__notification'),
 };
 
-const fetchFilmsByQuery = new FetchFilms();
+fetchFilmsByQuery = new FetchFilms();
 
 function onSearchFormSubmit(e) {
   e.preventDefault();
@@ -16,15 +17,25 @@ function onSearchFormSubmit(e) {
   if (!query) {
     fetchFilmsByQuery.query = fetchFilmsByQuery.lastQuery;
     form.elements.name.value = fetchFilmsByQuery.lastQuery;
+    refs.notification.textContent =
+      'Search result not successful. Enter the correct movie name';
+    const cleantimer = setTimeout(
+      () => (refs.notification.textContent = ''),
+      3000
+    );
     return;
   }
-  console.log(query);
   fetchFilmsByQuery
     .fetchFilms(query, 1)
     .then(res => {
-      saveToLocalStorage(res.results);
       if (res.results.length === 0) {
         form.elements.name.value = fetchFilmsByQuery.lastQuery;
+        refs.notification.textContent =
+          'Search result not successful. Enter the correct movie name';
+        const cleantimer = setTimeout(
+          () => (refs.notification.textContent = ''),
+          3000
+        );
         throw new Error();
       }
       fetchFilmsByQuery.lastQuery = query;
