@@ -33,22 +33,22 @@ async function getFilmCard(content, page = 1) {
 //   return allFilm;
 // }
 
-getFilmCard().then(resp => {
-  createMarkup(resp);
-});
+// getFilmCard().then(resp => {
+//   createMarkup(resp);
+// });
 
-function createMarkup(resp) {
-  const filmCard = resp
-    .map(({ poster_path, title, genre_ids, vote_average }) => {
-      return `<div class="film__wrap">
-  <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
-  <ul>
-    <li class="film__item">${title}</li>
-    <li class="film__item">${genre_ids} | ${vote_average}</li>
-  </ul>
-</div>`;
-    })
-    .join('');
+// function createMarkup(resp) {
+//   const filmCard = resp
+//     .map(({ poster_path, title, genre_ids, vote_average }) => {
+//       return `<div class="film__wrap">
+//   <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
+//   <ul>
+//     <li class="film__item">${title}</li>
+//     <li class="film__item">${genre_ids} | ${vote_average}</li>
+//   </ul>
+// </div>`;
+//     })
+//     .join('');
 
-  filmComtainer.insertAdjacentHTML('beforeend', filmCard);
-}
+//   filmComtainer.insertAdjacentHTML('beforeend', filmCard);
+// }
