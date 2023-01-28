@@ -42,8 +42,6 @@ export function createMarkup(resp) {
       const releaseDate = release_date.slice(0, 4);
       const genreArrayShort = genre_ids.slice(0, 3);
       if (release_date) {
-        const releaseDate = release_date.slice(0, 4);
-        const genreArrayShort = genre_ids.slice(0, 3);
         return `<li class="film-list__item">
             <a href="#" class="film-list__link">
               <img class="film-list__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
