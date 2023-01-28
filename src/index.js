@@ -1,9 +1,9 @@
 
-import axios from 'axios';
+// import axios from 'axios';
 import './loader';
 
 
-import './js/pagination';
+// import './js/pagination';
 import './js/on-search.js';
 import { createMarkup } from './markup/markupfilmcard';
 import getFilmCard from './js/get-film-card';
