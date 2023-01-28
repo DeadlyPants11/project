@@ -1,22 +1,29 @@
-import axios from 'axios';
+// import axios from 'axios';
+import './js/pagination';
+import './js/on-search.js';
 import { createMarkup } from './markup/markupfilmcard';
+import getFilmCard from './js/get-film-card';
 
-const KEY = '8378c884a6341b6bb6a7cfb362550079';
-const BASE_URL = 'https://api.themoviedb.org/3';
+getFilmCard().then(resp => {
+  createMarkup(resp.results);
+});
 
-const filmComtainer = document.querySelector('.film__container');
+// const filmComtainer = document.querySelector('.film__container');
 
-async function getFilmCard(content, page = 1) {
-  try {
-    const responce = await axios.get(
-      `${BASE_URL}/trending/movie/week?api_key=${KEY}`
-    );
-    const film = responce.data.results;
-    return film;
-  } catch (error) {
-    return error.message;
-  }
-}
+// const KEY = '8378c884a6341b6bb6a7cfb362550079';
+// const BASE_URL = 'https://api.themoviedb.org/3';
+
+// async function getFilmCard(content, page = 1) {
+//   try {
+//     const responce = await axios.get(
+//       `${BASE_URL}/trending/movie/week?api_key=${KEY}`
+//     );
+//     const film = responce.data.results;
+//     return film;
+//   } catch (error) {
+//     return error.message;
+//   }
+// }
 
 // async function getGenres(params) {
 //   const respons = await axios.get(
@@ -33,9 +40,6 @@ async function getFilmCard(content, page = 1) {
 //   return allFilm;
 // }
 
-// getFilmCard().then(resp => {
-//   createMarkup(resp);
-// });
 
 // function createMarkup(resp) {
 //   const filmCard = resp
