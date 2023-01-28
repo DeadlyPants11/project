@@ -38,8 +38,8 @@ getFilmCard().then(resp => {
 
 function createMarkup(resp) {
   const filmCard = resp
-    .map(({ poster_path, title, genre_ids, vote_average }) => {
-      return `<div class="film__wrap">
+    .map(({ poster_path, title, genre_ids, vote_average, id }) => {
+      return `<div class="film__wrap data-id="${id}"">
   <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
   <ul>
     <li class="film__item">${title}</li>
