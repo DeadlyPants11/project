@@ -12,17 +12,26 @@
 }
 
 //* Pagination *//
+.pagination-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
 .pagination {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  // max-width: 374px;
-  // margin: 0 auto;
-}
+  align-items: center;
+  max-width: 280px;
 
-.pagination-container {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+    max-width: 374px;
+    margin: 0 auto;
+  }
 }
 
 .pagination li {
