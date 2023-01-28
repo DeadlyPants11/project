@@ -1,22 +1,32 @@
 import axios from 'axios';
 import { createMarkup } from './markup/markupfilmcard';
+import getFilmCard from './get-film-card';
+import FetchFilms from './fetch-films';
 
-const KEY = '8378c884a6341b6bb6a7cfb362550079';
-const BASE_URL = 'https://api.themoviedb.org/3';
+const fetchFilmsByQuery = new FetchFilms();
 
-const filmComtainer = document.querySelector('.film__container');
+getFilmCard().then(resp => {
+  fetchFilmsByQuery.this.currentPage;
+  onTrendingSearchFilm(resp);
+  createMarkup(resp.results);
+});
 
-async function getFilmCard(content, page = 1) {
-  try {
-    const responce = await axios.get(
-      `${BASE_URL}/trending/movie/week?api_key=${KEY}`
-    );
-    const film = responce.data.results;
-    return film;
-  } catch (error) {
-    return error.message;
-  }
-}
+// const filmComtainer = document.querySelector('.film__container');
+
+// const KEY = '8378c884a6341b6bb6a7cfb362550079';
+// const BASE_URL = 'https://api.themoviedb.org/3';
+
+// async function getFilmCard(content, page = 1) {
+//   try {
+//     const responce = await axios.get(
+//       `${BASE_URL}/trending/movie/week?api_key=${KEY}`
+//     );
+//     const film = responce.data.results;
+//     return film;
+//   } catch (error) {
+//     return error.message;
+//   }
+// }
 
 // async function getGenres(params) {
 //   const respons = await axios.get(
@@ -33,50 +43,18 @@ async function getFilmCard(content, page = 1) {
 //   return allFilm;
 // }
 
-getFilmCard().then(resp => {
-  createMarkup(resp);
-});
+// function createMarkup(resp) {
+//   const filmCard = resp
+//     .map(({ poster_path, title, genre_ids, vote_average }) => {
+//       return `<div class="film__wrap">
+//   <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
+//   <ul>
+//     <li class="film__item">${title}</li>
+//     <li class="film__item">${genre_ids} | ${vote_average}</li>
+//   </ul>
+// </div>`;
+//     })
+//     .join('');
 
-function createMarkup(resp) {
-  const filmCard = resp
-    .map(({ poster_path, title, genre_ids, vote_average }) => {
-      return `<div class="film__wrap">
-  <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
-  <ul>
-    <li class="film__item">${title}</li>
-    <li class="film__item">${genre_ids} | ${vote_average}</li>
-  </ul>
-</div>`;
-    })
-    .join('');
-
-  filmComtainer.insertAdjacentHTML('beforeend', filmCard);
-}
-
-async function onSearchMovie() {
-  try {
-    const response = await axios.get(
-      `${BASE_URL}search/movie?api_key=${KEY}&language=en-US&page=${page}&include_adult=false&query=${inputValue}`
-    );
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-}
-function onSearchFilm() {
-  onSearchMovie.then(response => {
-    localStorage.setItem('SEARCH_RESULT_QUERY', JSON.stringify(response));
-  });
-}
-
-function onTrendingSearchFilm() {
-  getFilmCard.then(response => {
-    localStorage.setItem('TREDING_RESULT', JSON.stringify(response));
-  });
-}
-
-function onGenresSearchFilm() {
-  getGenresArray().then(resp => {
-    localStorage.setItem(GENRES_NAME, JSON.stringify(resp));
-  });
-}
+//   filmComtainer.insertAdjacentHTML('beforeend', filmCard);
+// }
