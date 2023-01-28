@@ -40,6 +40,7 @@ getFilmCard().then(resp => {
 //   return allFilm;
 // }
 
+
 // function createMarkup(resp) {
 //   const filmCard = resp
 //     .map(({ poster_path, title, genre_ids, vote_average }) => {
