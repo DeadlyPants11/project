@@ -1,13 +1,10 @@
-
 // import axios from 'axios';
 import './loader';
 
-
-// import './js/pagination';
+import './js/pagination';
 import './js/on-search.js';
 import { createMarkup } from './markup/markupfilmcard';
 import getFilmCard from './js/get-film-card';
-
 
 getFilmCard().then(resp => {
   createMarkup(resp.results);
@@ -29,22 +26,6 @@ getFilmCard().then(resp => {
 //     return error.message;
 //   }
 // }
-
-// async function getGenres(params) {
-//   const respons = await axios.get(
-//     `${BASE_URL}/genre/movie/list?api_key=${KEY}`
-//   );
-//   const genres = respons.data.genres;
-//   return genres;
-// }
-
-// async function searchFilm(params, page = 1) {
-//   const respons = await axios.get(`${BASE_URL}/search/movie?api_key=${KEY}`);
-//   const allFilm = respons;
-//   console.log(allFilm);
-//   return allFilm;
-// }
-
 
 // function createMarkup(resp) {
 //   const filmCard = resp

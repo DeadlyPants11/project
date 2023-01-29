@@ -1,6 +1,6 @@
 import FetchFilms from './fetch-films';
 import { createMarkup } from '../markup/markupfilmcard';
-// import { pagination } from './pagination';
+import { pagination } from './pagination';
 const refs = {
   filmContainer: document.querySelector('.film__container'),
   searchForm: document.querySelector('.search__form'),
