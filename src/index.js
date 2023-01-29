@@ -4,9 +4,9 @@ import './js/on-search.js';
 import { createMarkup } from './markup/markupfilmcard';
 import getFilmCard from './js/get-film-card';
 
-getFilmCard().then(resp => {
-  createMarkup(resp.results);
-});
+// getFilmCard().then(resp => {
+//   createMarkup(resp.results);
+// });
 
 // const filmComtainer = document.querySelector('.film__container');
 
