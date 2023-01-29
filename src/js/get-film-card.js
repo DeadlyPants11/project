@@ -5,8 +5,6 @@ export default function getFilmCard(query = '', page = 1) {
   const fetch = new FetchFilms();
   const filmsInStorage = loadFromStorage(query, page);
   if (filmsInStorage) {
-    console.log('Load from storage');
-    console.log(filmsInStorage);
     return Promise.resolve(filmsInStorage.results);
   }
 
