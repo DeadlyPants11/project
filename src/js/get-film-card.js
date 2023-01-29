@@ -34,9 +34,10 @@ function loadFromStorage(query, page) {
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
     // const loadedParsedFilms = loadedForParseFilms.find(array => array.query && array.page  ===)
     console.log(parseLoadedFilms);
-    // if (parseLoadedFilms.page === page) {
-    //   return parseLoadedFilms.page;
-    // }
+    if (parseLoadedFilms.page === page && parseLoadedFilms.query === query) {
+      return parseLoadedFilms.results;
+      console.log(parseLoadedFilms.results);
+    }
     return parseLoadedFilms;
   } catch (error) {
     console.error('Get state error: ', error.message);
