@@ -35,15 +35,47 @@ function getGenresName(array) {
   }
 }
 
+// export function createMarkup(resp) {
+//   const filmCard = resp
+//     .map(({ poster_path, title, genre_ids, release_date }) => {
+//       getGenresName(genre_ids);
+
+//       const releaseDate = release_date.slice(0, 4);
+//       const genreArrayShort = genre_ids.slice(0, 3);
+
+//       if (release_date) {
+//         return `<li class="film-list__item">
+//             <a href="#" class="film-list__link">
+//               <img class="film-list__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
+//               <div class="film-list__box">
+//                   <h2 class="film-list__title">${title}</h2>
+//                   <p class="film-list__genres">${genreArrayShort} <span class="film-list__date"></span>${releaseDate}</p>
+//               </div>
+//             </a>
+//           </li>`;
+//       }
+//     })
+//     .join('');
+
+//   // filmComtainer.insertAdjacentHTML('beforeend', filmCard);
+//   filmComtainer.innerHTML = filmCard;
+// }
+
 export function createMarkup(resp) {
   const filmCard = resp
     .map(({ poster_path, title, genre_ids, release_date }) => {
       getGenresName(genre_ids);
-      const releaseDate = release_date.slice(0, 4);
-      const genreArrayShort = genre_ids.slice(0, 3);
-
+      let releaseDate = '';
+      if (!release_date) {
+        const message = 'No date';
+        releaseDate = message;
+      }
       if (release_date) {
-        return `<li class="film-list__item">
+        releaseDate = release_date.slice(0, 4);
+      }
+
+      const genreArrayShort = genre_ids.slice(0, 3);
+      return `<li class="film-list__item">
             <a href="#" class="film-list__link">
               <img class="film-list__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
               <div class="film-list__box">
@@ -52,10 +84,8 @@ export function createMarkup(resp) {
               </div>
             </a>
           </li>`;
-      }
     })
     .join('');
 
-  // filmComtainer.insertAdjacentHTML('beforeend', filmCard);
   filmComtainer.innerHTML = filmCard;
 }
