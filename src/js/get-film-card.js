@@ -2,9 +2,13 @@ import FetchFilms from './fetch-films';
 
 export default function getFilmCard(query = '', page = 1) {
   const fetch = new FetchFilms();
+  // const getLoadedFilms = localStorage.getItem('CURRENT_FILMS');
+  // if (getLoadedFilms) {
+  //   return getLoadedFilms;
+  // }
   //  Зробити завантаження з локал сторадж
   // Якщо не False то робимо раннє повернення
-  // loadFromStorage(query, page);
+  loadFromStorage(query, page);
 
   return fetch.fetchFilms(query, page).then(data => {
     try {
@@ -22,12 +26,18 @@ export default function getFilmCard(query = '', page = 1) {
 }
 
 function loadFromStorage(query, page) {
-  // console.log(query, page);
+  console.log(query, page);
   try {
-    const loadedFilms = localStorage.getItem('CURRENT_FILMS');
+    const getLoadedFilms = localStorage.getItem('CURRENT_FILMS');
     // Розпарсити дані якщо такі є і порівняти сторінку і пошуковий запит
     // Якщо однакові з поточними вернути результат,якщо ні то порожні дані
-    // loadedFilms === JSON.parse(loadedFilms);
+    const parseLoadedFilms = JSON.parse(getLoadedFilms);
+    // const loadedParsedFilms = loadedForParseFilms.find(array => array.query && array.page  ===)
+    console.log(parseLoadedFilms);
+    // if (parseLoadedFilms.page === page) {
+    //   return parseLoadedFilms.page;
+    // }
+    return parseLoadedFilms;
   } catch (error) {
     console.error('Get state error: ', error.message);
   }
