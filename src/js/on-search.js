@@ -1,6 +1,7 @@
 import FetchFilms from './fetch-films';
 import { createMarkup } from '../markup/markupfilmcard';
 import { pagination } from './pagination';
+import getFilmCard from './get-film-card';
 const refs = {
   filmContainer: document.querySelector('.film__container'),
   searchForm: document.querySelector('.search__form'),
@@ -25,8 +26,7 @@ function onSearchFormSubmit(e) {
     );
     return;
   }
-  fetchFilmsByQuery
-    .fetchFilms(query, 1)
+  getFilmCard(query, 1)
     .then(res => {
       if (res.results.length === 0) {
         form.elements.name.value = fetchFilmsByQuery.lastQuery;
