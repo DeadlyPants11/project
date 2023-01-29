@@ -41,6 +41,7 @@ export function createMarkup(resp) {
       getGenresName(genre_ids);
       const releaseDate = release_date.slice(0, 4);
       const genreArrayShort = genre_ids.slice(0, 3);
+
       if (release_date) {
         return `<li class="film-list__item">
             <a href="#" class="film-list__link">

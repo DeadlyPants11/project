@@ -1,13 +1,10 @@
-
 // import axios from 'axios';
 import './loader';
 
-
-// import './js/pagination';
+import './js/pagination';
 import './js/on-search.js';
 import { createMarkup } from './markup/markupfilmcard';
 import getFilmCard from './js/get-film-card';
-
 
 getFilmCard().then(resp => {
   createMarkup(resp.results);
@@ -29,40 +26,6 @@ getFilmCard().then(resp => {
 //     return error.message;
 //   }
 // }
-
-const paginationUl = document.querySelector('.pagination');
-
-paginationUl.addEventListener('click', onPaginationClick);
-
-function onPaginationClick(event) {
-  if (event.target.nodeName.toLowerCase() !== 'li') {
-    return;
-  }
-  if (event.target.textContent === '...') {
-    return;
-  }
-
-  if (event.target.textContent === '🡸') {
-    const newCurrentPage = (globalCurrentPage -= 1);
-    getFilmCard('', newCurrentPage).then(resp => {
-      createMarkup(resp.results);
-      pagination(resp.page, resp.total_pages);
-    });
-    return;
-  }
-  if (event.target.textContent === '🡺') {
-    getFilmCard('', (globalCurrentPage += 1)).then(resp => {
-      createMarkup(resp.results);
-      pagination(resp.page, resp.total_pages);
-    });
-    return;
-  }
-  const page = Number(event.target.textContent);
-  getFilmCard('', page).then(resp => {
-    createMarkup(resp.results);
-    pagination(resp.page, resp.total_pages);
-  });
-}
 
 // function createMarkup(resp) {
 //   const filmCard = resp
