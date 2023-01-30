@@ -12,3 +12,10 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.is-hidden {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
