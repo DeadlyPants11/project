@@ -8,12 +8,12 @@ const refs = {
   notification: document.querySelector('.container__notification'),
 };
 
-fetchFilmsByQuery = new FetchFilms();
+const fetchFilmsByQuery = new FetchFilms();
 
 function onSearchFormSubmit(e) {
   e.preventDefault();
   const form = e.currentTarget;
-  query = form.elements.name.value.trim();
+  const query = form.elements.name.value.trim();
   fetchFilmsByQuery.query = query;
   if (!query) {
     fetchFilmsByQuery.query = fetchFilmsByQuery.lastQuery;
