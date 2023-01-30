@@ -1,6 +1,6 @@
 import { refs } from './refs';
 import { onCloseModal } from './modal-open-close';
-export { onCreateMarkup };
+export { onCreateMarkup, onRemoveMarkupModal };
 
 function onCreateMarkup({
   poster_path,
@@ -63,13 +63,15 @@ function onCreateMarkup({
   </div>
 </div>`;
   onAddMarkupFromDOM(filmInfoMarkup);
-  const closeModalButton =
+  let closeModalButton =
     refs.backdrop.getElementsByClassName('button-close')[0];
   closeModalButton.addEventListener('click', onCloseModal);
   closeModalButton.addEventListener('click', onRemoveMarkupModal);
+  console.log(`📌  closeModalButton`, closeModalButton);
 }
 
 function onAddMarkupFromDOM(markup) {
+  onRemoveMarkupModal();
   refs.backdrop.insertAdjacentHTML('beforeend', markup);
 }
 
