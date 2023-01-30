@@ -8,7 +8,7 @@ const refs = {
   notification: document.querySelector('.container__notification'),
 };
 
-fetchFilmsByQuery = new FetchFilms();
+const fetchFilmsByQuery = new FetchFilms();
 
 function onSearchFormSubmit(e) {
   e.preventDefault();
