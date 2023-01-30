@@ -72,9 +72,9 @@ function onEscKeyPress(e) {
   }
 }
 
-// refs.backdrop.addEventListener('click', onClickBackdrop);
-// function onClickBackdrop(e) {
-//   if (e.currentTarget === e.target) {
-//     onCloseModal();
-//   }
-// }
+refs.backdrop.addEventListener('click', onClickBackdrop);
+function onClickBackdrop(e) {
+  if (e.currentTarget === e.target) {
+    onCloseModal();
+  }
+}
