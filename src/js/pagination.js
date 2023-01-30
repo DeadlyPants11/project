@@ -9,11 +9,11 @@ paginationUl.addEventListener('click', onPaginationClick);
 
 function onPaginationClick(event) {
   const query = search.value.trim();
-  filmComtainer.innerHTML = '';
-  if (event.target.nodeName.toLowerCase() !== 'li') {
+  if (event.target.textContent === '...') {
     return;
   }
-  if (event.target.textContent === '...') {
+  filmComtainer.innerHTML = '';
+  if (event.target.nodeName.toLowerCase() !== 'li') {
     return;
   }
 
@@ -44,23 +44,6 @@ getFilmCard().then(resp => {
   pagination(resp.page, resp.total_pages);
 });
 
-// function createMarkup(resp) {
-//   const filmCard = resp
-//     .map(({ poster_path, title, genre_ids, vote_average }) => {
-//       return `<div class="film__wrap">
-//   <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
-//   <ul>
-//     <li class="film__item">${title}</li>
-//     <li class="film__item">${genre_ids} | ${vote_average}</li>
-//   </ul>
-// </div>`;
-//     })
-//     .join('');
-
-//   // filmComtainer.insertAdjacentHTML('beforeend', filmCard);
-//   filmComtainer.innerHTML = filmCard;
-// }
-
 let globalCurrentPage = 0;
 
 export function pagination(currentPage, allPages) {
@@ -89,7 +72,7 @@ export function pagination(currentPage, allPages) {
   }
 
   if (currentPage > 4) {
-    markup += `<li>...</li>`;
+    markup += `<li class="dots">...</li>`;
   }
 
   if (currentPage > 3) {
@@ -111,7 +94,7 @@ export function pagination(currentPage, allPages) {
   }
 
   if (allPages - 3 > currentPage) {
-    markup += `<li>...</li> `;
+    markup += `<li class="dots">...</li> `;
   }
 
   if (allPages > currentPage) {
