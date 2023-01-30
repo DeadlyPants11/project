@@ -1,3 +1,11 @@
+export {
+  preloaderHide,
+  onLoaderClassRemove,
+  onLoaderClassAdd,
+  loaderEl,
+  preloaderWrapperEl,
+};
+
 const loaderEl = document.querySelector('.loader');
 const preloaderWrapperEl = document.querySelector('.preloader-wrapper');
 

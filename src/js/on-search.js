@@ -1,18 +1,19 @@
 import FetchFilms from './fetch-films';
 import { createMarkup } from '../markup/markupfilmcard';
 import { pagination } from './pagination';
+import getFilmCard from './get-film-card';
 const refs = {
   filmContainer: document.querySelector('.film__container'),
   searchForm: document.querySelector('.search__form'),
   notification: document.querySelector('.container__notification'),
 };
 
-fetchFilmsByQuery = new FetchFilms();
+const fetchFilmsByQuery = new FetchFilms();
 
 function onSearchFormSubmit(e) {
   e.preventDefault();
   const form = e.currentTarget;
-  query = form.elements.name.value.trim();
+  const query = form.elements.name.value.trim();
   fetchFilmsByQuery.query = query;
   if (!query) {
     fetchFilmsByQuery.query = fetchFilmsByQuery.lastQuery;
@@ -25,8 +26,7 @@ function onSearchFormSubmit(e) {
     );
     return;
   }
-  fetchFilmsByQuery
-    .fetchFilms(query, 1)
+  getFilmCard(query, 1)
     .then(res => {
       if (res.results.length === 0) {
         form.elements.name.value = fetchFilmsByQuery.lastQuery;
