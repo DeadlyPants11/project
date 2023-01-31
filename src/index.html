@@ -78,14 +78,35 @@
         Developed with
         <img class="heart" src="./images/Vector.jpg" alt="heart" />
         by
-        <a class="text-footer" href="./partials/modal-team.html">
+        <a class="text-footer" data-modal-open href="#" onclick="toggleModal()">
           GoIT Students
         </a>
       </p>
     </footer>
-    <include src="./partials/modal.html"></include>
-    <include src="./partials/modal-team.html"></include>
 
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="modal-close-btn" data-modal-close>
+          <svg class="modal-close-icon">
+            <use href="./images/sprite.svg#icon-close"></use>
+          </svg>
+          <h3 class="team">Название</h3>
+        </button>
+        <ul>
+          <li>
+            <img
+              class="image-team"
+              src="./images/no-image-available.jpg"
+              alt=""
+            />
+            <h1 class="name-team">Ostryanin Rostislav</h1>
+            <p class="title">TeamLead</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <include src="./partials/modal.html"></include>
     <script src="./index.js" type="module"></script>
   </body>
 </html>
