@@ -8,6 +8,7 @@ import { createMarkup } from './markup/markupfilmcard';
 import getFilmCard from './js/get-film-card';
 import './js/modal-open-close';
 import './js/api';
+import './js/button-up'
 
 getFilmCard().then(resp => {
   createMarkup(resp.results);
