@@ -14,9 +14,11 @@ export default function getFilmCard(query = '', page = 1) {
         page: page,
         query: query,
         results: data,
+
         // queue: queue,
         // watched: watched,
         // id: id
+
       });
       localStorage.setItem('CURRENT_FILMS', filmsToSave);
     } catch (error) {
