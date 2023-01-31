@@ -1,0 +1,35 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 280px;
+  height: 940px;
+
+  position: fixed;
+
+  font-weight: 500;
+  font-size: 12px;
+
+  background-color: var(--background-color);
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 704px;
+    height: 552px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 806px;
+    height: 558px;
+  }
+}
