@@ -41,6 +41,7 @@ function onPaginationClick(event) {
 
 getFilmCard().then(resp => {
   createMarkup(resp.results);
+  // observer.observe(guard);
   pagination(resp.page, resp.total_pages);
 });
 
@@ -104,3 +105,29 @@ export function pagination(currentPage, allPages) {
 
   paginationUl.innerHTML = markup;
 }
+
+////////////////////////////////////////////////
+// const guard = document.querySelector('.js-guard');
+
+// const options = {
+//   root: null,
+//   rootMargin: '300px',
+//   threshold: 1.0,
+// };
+// const observer = new IntersectionObserver(onInfinityLoad, options);
+
+// let page = 1;
+
+// function onInfinityLoad(entries, observer) {
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       page += 1;
+//       getFilmCard(page).then(res => {
+//         createMarkup(res.results);
+//         // if (page === total_pages) {
+//         //   observer.unobserve(guard);
+//         // }
+//       });
+//     }
+//   });
+// }

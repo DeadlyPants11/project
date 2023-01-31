@@ -24,22 +24,22 @@ checkLocalStorage();
 
 export function addRefsAndListeners() {
   localRefs = {
-  modal: refs.backdrop.getElementsByClassName('modal')[0],
-  addToWatched:  refs.backdrop.getElementsByClassName('btn-add-to-watched')[0],
-  addToQueue:  refs.backdrop.getElementsByClassName('btn-add-to-queue')[0],
+    modal: refs.backdrop.getElementsByClassName('modal')[0],
+    addToWatched: refs.backdrop.getElementsByClassName('btn-add-to-watched')[0],
+    addToQueue: refs.backdrop.getElementsByClassName('btn-add-to-queue')[0],
   };
 
-// Слухачи подій на кнопки
-localRefs.addToWatched.addEventListener('click', onAddToWathed);
+  // Слухачи подій на кнопки
+  localRefs.addToWatched.addEventListener('click', onAddToWathed);
   localRefs.addToQueue.addEventListener('click', onAddToQueue);
   // по кліку на кнопку витянути дататрибут з поточної модалки
   filmId = localRefs.modal.dataset.id;
   if (isFilmExist(filmId, 'queue')) {
-    localRefs.addToQueue.textContent = "Remove from Queue";
+    localRefs.addToQueue.textContent = 'Remove from Queue';
     localRefs.addToQueue.classList.add('added');
   }
   if (isFilmExist(filmId, 'watched')) {
-    localRefs.addToWatched.textContent = "Remove from Watched";
+    localRefs.addToWatched.textContent = 'Remove from Watched';
     localRefs.addToWatched.classList.add('added');
   }
 }
@@ -47,7 +47,7 @@ localRefs.addToWatched.addEventListener('click', onAddToWathed);
 function isFilmExist(id, key) {
   const getLoadedFilms = localStorage.getItem(key);
   const parseLoadedFilms = JSON.parse(getLoadedFilms);
- return  parseLoadedFilms.find(obj => obj.id == id);
+  return parseLoadedFilms.find(obj => obj.id == id);
 }
 
 export function delListeners() {
@@ -55,27 +55,30 @@ export function delListeners() {
   localRefs.addToQueue.removeEventListener('click', onAddToQueue);
 }
 
-function onAddToWathed() {
-  const film = getFilm(filmId); 
+export function onAddToWathed() {
+  const film = getFilm(filmId);
+
   localRefs.addToWatched.classList.toggle('added');
-  if (localRefs.addToWatched.classList.contains("added")) {
+  if (localRefs.addToWatched.classList.contains('added')) {
     addFilmToStorage('watched', film);
-    localRefs.addToWatched.textContent = "Remove from Watched";
+
+    localRefs.addToWatched.textContent = 'Remove from Watched';
   } else {
     delFilmFromStorage('watched', filmId);
-    localRefs.addToWatched.textContent = "Add to Watched";
+    localRefs.addToWatched.textContent = 'Add to Watched';
   }
 }
 
 function onAddToQueue() {
-  const film = getFilm(filmId); 
+  const film = getFilm(filmId);
   localRefs.addToQueue.classList.toggle('added');
-  if (localRefs.addToQueue.classList.contains("added")) {
+  if (localRefs.addToQueue.classList.contains('added')) {
     addFilmToStorage('queue', film);
-    localRefs.addToQueue.textContent = "Remove from Queue";
+    // observer.observe(guard);
+    localRefs.addToQueue.textContent = 'Remove from Queue';
   } else {
     delFilmFromStorage('queue', filmId);
-    localRefs.addToQueue.textContent = "Add to Queue";
+    localRefs.addToQueue.textContent = 'Add to Queue';
   }
 }
 
@@ -103,7 +106,7 @@ function addFilmToStorage(key, film) {
     const getLoadedFilms = localStorage.getItem(key);
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
     parseLoadedFilms.push(film);
-    localStorage.setItem(key, JSON.stringify(parseLoadedFilms))
+    localStorage.setItem(key, JSON.stringify(parseLoadedFilms));
   } catch (error) {
     console.error('Get state error: ', error.message);
   }
@@ -114,8 +117,8 @@ function delFilmFromStorage(key, id) {
   try {
     const getLoadedFilms = localStorage.getItem(key);
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
-    const newFilms = parseLoadedFilms.filter(obj => obj.id != id)
-    localStorage.setItem(key, JSON.stringify(newFilms))
+    const newFilms = parseLoadedFilms.filter(obj => obj.id != id);
+    localStorage.setItem(key, JSON.stringify(newFilms));
   } catch (error) {
     console.error('Get state error: ', error.message);
   }
