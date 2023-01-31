@@ -18,6 +18,11 @@
   line-height: calc(16 / 12);
 }
 
+.activeBtn{
+  border: none;
+    background: #ff6b01;
+}
+
 .btn:hover,
 .btn:focus {
   border: none;

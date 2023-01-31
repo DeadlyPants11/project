@@ -6,6 +6,7 @@
     <title>Filmoteka</title>
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
+
   <body>
     <header class="header">
       <div class="container header__container">
@@ -40,22 +41,39 @@
               name="name"
               class="form__input"
               id="name"
-              placeholder=" "
+              placeholder="Movie search"
             />
-            <label for="name" class="form__label">Movie search</label>
-            <svg class="form__icon" width="12" height="12">
-              <use href="./images/icon.svg#icon-search"></use>
-            </svg>
+            <button class="form__btn">
+              <svg class="form__icon" width="12" height="12">
+                <use href="./images/icon.svg#icon-search"></use>
+              </svg>
+            </button>
           </div>
         </form>
+        <p class="container__notification"></p>
       </div>
     </header>
     <main>
-      <div class="section">
-        <div class="container film__container"></div>
-      </div>
-    </main>
+      <section class="section">
+        <ul class="container film__container"></ul>
+     </section>
 
+      <!-- Section pagination -->
+      <section class="pagination-section">
+        <div class="container">
+          <h2 class="visually-hidden">Pagination</h2>
+          <ul class="pagination pagination-container"></ul>
+        </div>
+      </section>
+
+      <!-- Add loader and preloader -->
+      <div class="preloader-wrapper">
+        <div class="preloader"></div>
+      </div>
+      <div class="loader visually-hidden"></div>
+
+    </main>
+    <include src="./partials/modal.html"></include>
     <script src="./index.js" type="module"></script>
   </body>
 </html>
