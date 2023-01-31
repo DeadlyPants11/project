@@ -53,6 +53,7 @@ function onCreateMarkup({
       <p class="modal-info__description">
         ${overview}
       </p>
+      <button type="button" class="watch-trailer__btn " id="${id}">WATCH TRAILER</button></li>
       <ul class="modal-info__button-list">
         <li class="modal-info__button-list-item">
           <button type="button" class="modal-button">ADD TO WATCHED</button></li>
@@ -62,12 +63,13 @@ function onCreateMarkup({
     </div>
   </div>
 </div>`;
+
   onAddMarkupFromDOM(filmInfoMarkup);
   let closeModalButton =
     refs.backdrop.getElementsByClassName('button-close')[0];
   closeModalButton.addEventListener('click', onCloseModal);
   closeModalButton.addEventListener('click', onRemoveMarkupModal);
-  console.log(`📌  closeModalButton`, closeModalButton);
+  // console.log(`📌  closeModalButton`, closeModalButton);
 }
 
 function onAddMarkupFromDOM(markup) {

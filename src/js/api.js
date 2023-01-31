@@ -15,3 +15,17 @@ async function onGetFilmDataByID(id) {
     console.log(error);
   }
 }
+
+export async function onGetFilmVideoByID(id) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${id}/videos?api_key=${KEY}`
+    );
+    if (!response.status) {
+      throw new Error('This movie is not available');
+    }
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
