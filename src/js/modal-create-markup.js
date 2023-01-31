@@ -2,6 +2,9 @@ import { refs } from './refs';
 import { onCloseModal } from './modal-open-close';
 export { onCreateMarkup, onRemoveMarkupModal };
 
+  import { addRefsAndListeners, delListeners } from './add-to-localstorage-btn';
+
+
 function onCreateMarkup({
   poster_path,
   title,
@@ -55,9 +58,11 @@ function onCreateMarkup({
       </p>
       <ul class="modal-info__button-list">
         <li class="modal-info__button-list-item">
-          <button type="button" class="modal-button">ADD TO WATCHED</button></li>
+
+          <button type="button" class="modal-button btn-add-to-watched">ADD TO WATCHED</button></li>
         <li class="modal-info__button-list-item">
-          <button type="button" class="modal-button">ADD TO QUEUE</button></li>
+          <button type="button" class="modal-button btn-add-to-queue">ADD TO QUEUE</button></li>
+
       </ul>
     </div>
   </div>
@@ -66,7 +71,11 @@ function onCreateMarkup({
   let closeModalButton =
     refs.backdrop.getElementsByClassName('button-close')[0];
   closeModalButton.addEventListener('click', onCloseModal);
+
+  addRefsAndListeners();
+
   closeModalButton.addEventListener('click', onRemoveMarkupModal);
+
   console.log(`📌  closeModalButton`, closeModalButton);
 }
 

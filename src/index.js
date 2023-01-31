@@ -1,5 +1,7 @@
 // import axios from 'axios';
 import './loader';
+import './js/add-to-localstorage-btn';
+
 
 import './js/pagination';
 import './js/on-search.js';

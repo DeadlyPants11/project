@@ -38,6 +38,13 @@ export function createMarkup(resp) {
   const filmCard = resp
     .map(({ poster_path, title, genre_ids, release_date, id }) => {
       getGenresName(genre_ids);
+
+      const releaseDate = release_date.slice(0, 4);
+      const genreArrayShort = genre_ids.slice(0, 3);
+
+      if (release_date) {
+        return `<li class="film-list__item" data-id=${id}>
+
       let releaseDate = '';
       if (!release_date) {
         const message = 'N/A';
@@ -50,6 +57,7 @@ export function createMarkup(resp) {
       const genreArrayShort = genre_ids.slice(0, 3);
 
       return `<li class="film-list__item" data-id=${id}>
+
             <a href="#" class="film-list__link">
               <img class="film-list__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
               <div class="film-list__box">
@@ -58,6 +66,9 @@ export function createMarkup(resp) {
               </div>
             </a>
           </li>`;
+
+      }
+
     })
     .join('');
 

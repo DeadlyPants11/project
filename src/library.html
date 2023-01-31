@@ -40,12 +40,29 @@
           </button>
         </div>
 
-    <!-- Add loader and preloader -->
-    <div class="preloader-wrapper">
-      <div class="preloader"></div>
-    </div>
-    <div class="loader visually-hidden"></div>
-      
+    </header>
+    <main>
+      <section class="section">
+        <ul class="container film__container library__container"></ul>
+      </section>
+    
+      <!-- Section pagination -->
+     <section class="pagination-section">
+        <div class="container">
+          <h2 class="visually-hidden">Pagination</h2>
+          <ul class="pagination pagination-container"></ul>
+        </div>
+      </section> 
+    
+      <!-- Add loader and preloader -->
+      <div class="preloader-wrapper">
+        <div class="preloader"></div>
+      </div>
+      <div class="loader visually-hidden"></div>
+    
+    </main>
+    <include src="./partials/modal.html"></include>
+
     <script src="./library.js" type="module"></script>
   </body>
 </html>
