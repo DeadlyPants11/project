@@ -2,6 +2,7 @@
 import './loader';
 import './js/add-to-localstorage-btn';
 
+
 import './js/pagination';
 import './js/on-search.js';
 import { createMarkup } from './markup/markupfilmcard';

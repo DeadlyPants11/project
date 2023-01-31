@@ -3,7 +3,9 @@ import noImageAvailable from '../images/no-image-available.jpg';
 import { refs } from './refs';
 import { onCreateMarkup } from './modal-create-markup';
 export { onCloseModal };
+
 import {delListeners} from './add-to-localstorage-btn'
+
 
 const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
 
@@ -11,6 +13,7 @@ refs.filmContainer.addEventListener('click', onOpenModal);
 
 function onOpenModal(e) {
   e.preventDefault();
+
   if (e.target === e.currentTarget) {
     return;
   }
@@ -63,7 +66,9 @@ function onOpenModal(e) {
 }
 
 function onCloseModal() {
+
   delListeners();
+
   window.removeEventListener('keydown', onEscKeyPress);
   refs.backdrop.classList.add('visually-hidden');
 }
