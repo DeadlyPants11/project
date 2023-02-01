@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Library</title>
-      <link rel="icon" href="/src/images/movies.ico" type="image/icon" />
+    <link rel="icon" href="/src/images/movies.ico" type="image/icon" />
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
@@ -20,47 +20,41 @@
         <nav class="navigation">
           <ul class="navigation__list">
             <li class="navigation__item list">
-              <a
-                href="./index.html"
-                class="navigation__link link "
-                >HOME</a
-              >
+              <a href="./index.html" class="navigation__link link">HOME</a>
             </li>
             <li class="navigation__item list">
-              <a href="./library.html" class="navigation__link link navigation__link--active"
+              <a
+                href="./library.html"
+                class="navigation__link link navigation__link--active"
                 >MY LIBRARY</a
               >
             </li>
           </ul>
         </nav>
-  </div>
-        <div class="container my__library-container">
-          <button class="btn btn__watched" type="button" >WATCHED
-          </button>
-          <button class="btn btn__queue" type="button">QUEUE
-          </button>
-        </div>
-
+      </div>
+      <div class="container my__library-container">
+        <button class="btn btn__watched" type="button">WATCHED</button>
+        <button class="btn btn__queue" type="button">QUEUE</button>
+      </div>
     </header>
     <main>
       <section class="section">
         <ul class="container film__container library__container"></ul>
       </section>
-    
+
       <!-- Section pagination -->
-     <section class="pagination-section">
+      <section class="pagination-section">
         <div class="container">
           <h2 class="visually-hidden">Pagination</h2>
           <ul class="pagination pagination-container"></ul>
         </div>
-      </section> 
-    
+      </section>
+
       <!-- Add loader and preloader -->
       <div class="preloader-wrapper">
         <div class="preloader"></div>
       </div>
       <div class="loader visually-hidden"></div>
-    
     </main>
     <include src="./partials/modal.html"></include>
 

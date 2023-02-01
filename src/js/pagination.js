@@ -15,6 +15,7 @@ function onPaginationClick(event) {
   if (event.target.nodeName.toLowerCase() !== 'li') {
     return;
   }
+
   filmComtainer.innerHTML = '';
 
   if (event.target.textContent === '🡸') {
