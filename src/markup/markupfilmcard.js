@@ -3,7 +3,7 @@ import axios from 'axios';
 const KEY = '8378c884a6341b6bb6a7cfb362550079';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const GENRES_NAME = 'genresNames';
-const filmContainer = document.querySelector('.film__container');
+export const filmContainer = document.querySelector('.film__container');
 
 async function getGenresArray() {
   try {
@@ -75,7 +75,8 @@ export function createMarkup(resp) {
     })
     .join('');
 
-  filmContainer.innerHTML = filmCard;
+  // filmContainer.innerHTML = filmCard;
+  filmContainer.insertAdjacentHTML('beforeend', filmCard);
 }
 
 // https://png.pngtree.com/png-vector/20190820/ourlarge/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg
