@@ -215,14 +215,14 @@
 //   }
 // }
 
-.modal-button:hover,
-.modal-button:focus {
-  background-color: var(--accent-color);
-  color: var(--background-color);
-  border: none;
-  transition-duration: var(--animation-duration);
-  transition-timing-function: var(--timing-function);
-}
+// .modal-button:hover,
+// .modal-button:focus {
+//   background-color: var(--accent-color);
+//   color: var(--background-color);
+//   border: none;
+//   transition-duration: var(--animation-duration);
+//   transition-timing-function: var(--timing-function);
+// }
 
 .modal-info__button-list {
   display: flex;
@@ -234,6 +234,8 @@
     margin-right: 15px;
   }
 }
+
+
 
 
 .modal-button {
@@ -334,4 +336,5 @@
 .modal-container__img {
   position: relative;
 }
+
 
