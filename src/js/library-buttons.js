@@ -79,10 +79,10 @@ let options = {
 
 let observer = new IntersectionObserver(onScroll, options);
 
-const element = document.querySelector('.film-list__item:last-child');
+const lastFilmListItem = document.querySelector('.film-list__item:last-child');
 
-if (element) {
-  observer.observe(document.querySelector(element));
+if (lastFilmListItem) {
+  observer.observe(lastFilmListItem);
 }
 
 function onScroll(entries, observer) {
