@@ -194,35 +194,35 @@
   }
 }
 
-.modal-button {
-  width: 110px;
-  height: 44px;
+// .modal-button {
+//   width: 110px;
+//   height: 44px;
 
-  padding: 0px;
+//   padding: 0px;
 
-  border-radius: 5px;
+//   border-radius: 5px;
 
-  background-color: inherit;
+//   background-color: inherit;
 
-  cursor: pointer;
+//   cursor: pointer;
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    width: 125px;
-  }
+//   @media (min-width: 768px) and (max-width: 1023px) {
+//     width: 125px;
+//   }
 
-  @media (min-width: 1024px) {
-    width: 136px;
-  }
-}
+//   @media (min-width: 1024px) {
+//     width: 136px;
+//   }
+// }
 
-.modal-button:hover,
-.modal-button:focus {
-  background-color: var(--accent-color);
-  color: var(--background-color);
-  border: none;
-  transition-duration: var(--animation-duration);
-  transition-timing-function: var(--timing-function);
-}
+// .modal-button:hover,
+// .modal-button:focus {
+//   background-color: var(--accent-color);
+//   color: var(--background-color);
+//   border: none;
+//   transition-duration: var(--animation-duration);
+//   transition-timing-function: var(--timing-function);
+// }
 
 .modal-info__button-list {
   display: flex;
@@ -234,3 +234,42 @@
     margin-right: 15px;
   }
 }
+
+
+.modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 110px;
+  height: 44px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: calc(16 / 12);
+  border: none;
+  border-radius: 5px;
+  // background-color: $secondary-text-color;
+  border: 1px solid #000000;
+  box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6);
+  transition: box-shadow 400ms ease-in, color 400ms ease-in,
+    background-color 400ms ease-in;
+
+  &:hover,
+  &.added {
+    // color: $secondary-text-color;
+    background-color: #ff6b08;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;}
+            @media (min-width: 768px) and (max-width: 1023px) {
+              width: 125px;
+            }
+      
+            @media (min-width: 1024px) {
+              width: 136px;
+    
+    
+    
+    }}
