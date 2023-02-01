@@ -2,8 +2,7 @@ import { refs } from './refs';
 import { onCloseModal } from './modal-open-close';
 export { onCreateMarkup, onRemoveMarkupModal };
 
-  import { addRefsAndListeners, delListeners } from './add-to-localstorage-btn';
-
+import { addRefsAndListeners, delListeners } from './add-to-localstorage-btn';
 
 function onCreateMarkup({
   poster_path,
@@ -22,11 +21,15 @@ function onCreateMarkup({
     </svg>
   </button>
   <div class="modal-container">
+  <div class="modal-container__img">
     <img
       class="modal-container__img"
       src="${poster_path}"
       alt="${title}"
     />
+    <div class="trailer-btn">
+      <button type="button" class="watch-trailer__btn " id="${id}">WATCH TRAILER</button></div>
+      </div>
     <div class="modal-info__container">
       <h2 class="modal-info__title">${title}</h2>
       <table class="modal-info-table">
@@ -56,12 +59,13 @@ function onCreateMarkup({
       <p class="modal-info__description">
         ${overview}
       </p>
+
       <ul class="modal-info__button-list">
         <li class="modal-info__button-list-item">
-
           <button type="button" class="modal-button btn-add-to-watched">ADD TO WATCHED</button></li>
         <li class="modal-info__button-list-item">
           <button type="button" class="modal-button btn-add-to-queue">ADD TO QUEUE</button></li>
+          
 
       </ul>
     </div>
