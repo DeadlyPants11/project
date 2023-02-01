@@ -11,14 +11,11 @@ import './js/api';
 
 import './js/modat-team';
 
-import './js/button-up'
-
+import './js/button-up';
 
 getFilmCard().then(resp => {
   createMarkup(resp.results);
 });
-
-console.log(toggleModal);
 
 // const filmComtainer = document.querySelector('.film__container');
 
@@ -52,3 +49,5 @@ console.log(toggleModal);
 
 //   filmComtainer.insertAdjacentHTML('beforeend', filmCard);
 // }
+
+console.log('index.js loaded');

@@ -78,7 +78,12 @@ let options = {
 };
 
 let observer = new IntersectionObserver(onScroll, options);
-observer.observe(document.querySelector('.film-list__item:last-child'));
+
+const element = document.querySelector('.film-list__item:last-child');
+
+if (element) {
+  observer.observe(document.querySelector(element));
+}
 
 function onScroll(entries, observer) {
   let key = '';
