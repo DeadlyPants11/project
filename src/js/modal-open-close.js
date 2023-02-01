@@ -72,17 +72,17 @@ function onOpenModal(e) {
       });
     });
   // add/remove is-active class on buttons
-  if (addToWatchedButton.textContent.toLowerCase() === 'add to watched') {
-    addToWatchedButton.classList.remove('is-active');
-  } else {
-    addToWatchedButton.classList.add('is-active');
-  }
+  // if (addToWatchedButton.textContent.toLowerCase() === 'add to watched') {
+  //   addToWatchedButton.classList.remove('is-active');
+  // } else {
+  //   addToWatchedButton.classList.add('is-active');
+  // }
 
-  if (queueBtn.textContent.toLowerCase() === 'add to queue') {
-    queueBtn.classList.remove('is-active');
-  } else {
-    queueBtn.classList.add('is-active');
-  }
+  // if (queueBtn.textContent.toLowerCase() === 'add to queue') {
+  //   queueBtn.classList.remove('is-active');
+  // } else {
+  //   queueBtn.classList.add('is-active');
+  // }
 }
 
 // --------------------------------------------------------------------------------
