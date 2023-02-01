@@ -36,6 +36,7 @@ function onBtnQueueClick() {
 }
 
 function loadFilms(key, currentPage) {
+  console.log('load');
   try {
     const getLoadedFilms = localStorage.getItem(key);
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
@@ -93,10 +94,10 @@ function onScroll(entries, observer) {
     if (entry.isIntersecting) {
       currentPage += 1;
 
-      if (currentPage * PER_PAGE > parsedData.length) {
-        observer.unobserve(entry.target);
-        return;
-      }
+      // if (currentPage * PER_PAGE > parsedData.length) {
+      //   observer.unobserve(entry.target);
+      //   return;
+      // }
       onObserve(currentPage, key);
     }
   });
