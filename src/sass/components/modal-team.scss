@@ -25,7 +25,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
+  width: 930px;
   height: 600px;
   background: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -51,4 +51,39 @@
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0;
+}
+
+.team-list {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  height: 480px;
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin-top: 40px;
+}
+
+.image-team {
+  width: 250px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.team-list_li {
+  width: 300px;
+}
+
+.name-team {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
 }
