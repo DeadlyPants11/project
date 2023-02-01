@@ -85,7 +85,6 @@ function onScroll(entries, observer) {
     key = 'watched';
   } else {
     key = 'queue';
-    і;
   }
   const data = localStorage.getItem(key);
   const parsedData = JSON.parse(data);
