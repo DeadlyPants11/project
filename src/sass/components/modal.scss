@@ -22,7 +22,7 @@
   transform: translate(-50%, -50%);
 
   width: 280px;
-  height: 940px;
+  // height: 940px;
 
   position: fixed;
 
@@ -175,7 +175,7 @@
 
 .modal-info__description {
   width: 240px;
-  height: 260px;
+  // height: 260px;
 
   font-size: 12px;
   line-height: 1.66;
@@ -194,35 +194,35 @@
   }
 }
 
-.modal-button {
-  width: 110px;
-  height: 44px;
+// .modal-button {
+//   width: 110px;
+//   height: 44px;
 
-  padding: 0px;
+//   padding: 0px;
 
-  border-radius: 5px;
+//   border-radius: 5px;
 
-  background-color: inherit;
+//   background-color: inherit;
 
-  cursor: pointer;
+//   cursor: pointer;
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    width: 125px;
-  }
+//   @media (min-width: 768px) and (max-width: 1023px) {
+//     width: 125px;
+//   }
 
-  @media (min-width: 1024px) {
-    width: 136px;
-  }
-}
+//   @media (min-width: 1024px) {
+//     width: 136px;
+//   }
+// }
 
-.modal-button:hover,
-.modal-button:focus {
-  background-color: var(--accent-color);
-  color: var(--background-color);
-  border: none;
-  transition-duration: var(--animation-duration);
-  transition-timing-function: var(--timing-function);
-}
+// .modal-button:hover,
+// .modal-button:focus {
+//   background-color: var(--accent-color);
+//   color: var(--background-color);
+//   border: none;
+//   transition-duration: var(--animation-duration);
+//   transition-timing-function: var(--timing-function);
+// }
 
 .modal-info__button-list {
   display: flex;
@@ -234,3 +234,107 @@
     margin-right: 15px;
   }
 }
+
+
+
+
+.modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 110px;
+  height: 44px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: calc(16 / 12);
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6);
+  transition: box-shadow 400ms ease-in, color 400ms ease-in,
+  background-color 400ms ease-in;
+
+  &:hover,
+  &.added {
+    background-color: #ff6b08;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      width: 125px;
+    }
+  
+    @media (min-width: 1024px) {
+      width: 136px;
+    }}
+
+// ------------------------------
+.iframe__div {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.watch-trailer__btn {
+  position: relative;
+  width: 300px;
+  height: 125px;
+
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 125px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 136px;
+  }
+}
+
+// .trailer-btn-circle {
+//   <div class="trailer-btn-circle"></div>
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 0;
+//   height: 0;
+//   border: 0 solid transparent;
+//   border-bottom-width: 42px;
+//   border-top-width: 42px;
+//   border-left: 72px solid black;
+// }
+
+.watch-trailer__btn:hover,
+.watch-trailer__btn:focus {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  border: none;
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--timing-function);
+}
+
+.trailer-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-container__img {
+  position: relative;
+}
+
+
