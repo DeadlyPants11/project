@@ -66,7 +66,7 @@ export function refreshPage() {
 // currentPage. створити функцію, що примає "сторінку" і робить слайс з масиву
 // currentPage. дадати зміну класу по слухачам
 
-//Інтерсекшн обзервер та скрол
+// //Інтерсекшн обзервер та скрол
 
 function onObserve(currentPage, key) {
   createMarkup(loadFilms(key, currentPage));
@@ -77,13 +77,7 @@ let options = {
   threshold: 0.5,
 };
 
-let observer = new IntersectionObserver(onScroll, options);
-
 const lastFilmListItem = document.querySelector('.film-list__item:last-child');
-
-if (lastFilmListItem) {
-  observer.observe(lastFilmListItem);
-}
 
 function onScroll(entries, observer) {
   let key = '';
@@ -91,19 +85,26 @@ function onScroll(entries, observer) {
     key = 'watched';
   } else {
     key = 'queue';
+    і;
   }
-  //   const data = localStorage.getItem(key);
-  //   const parsedData = JSON.parse(data);
+  const data = localStorage.getItem(key);
+  const parsedData = JSON.parse(data);
 
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       currentPage += 1;
 
-      //   if (currentPage * PER_PAGE > parsedData.length) {
-      //     observer.unobserve(entry.target);
-      //     return;
-      //   }
+      if (currentPage * PER_PAGE > parsedData.length) {
+        observer.unobserve(entry.target);
+        return;
+      }
       onObserve(currentPage, key);
     }
   });
+}
+
+let observer = new IntersectionObserver(onScroll, options);
+
+if (lastFilmListItem) {
+  observer.observe(lastFilmListItem);
 }
