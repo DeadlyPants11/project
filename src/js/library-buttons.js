@@ -43,19 +43,13 @@ function onBtnQueueClick() {
 }
 
 function loadFilms(key, currentPage) {
-  console.log('load');
   try {
     const getLoadedFilms = localStorage.getItem(key);
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
-    console.log(!parseLoadedFilms);
     if (!parseLoadedFilms || parseLoadedFilms.length == 0) {
       localRefs.libraryContainer.innerHTML = `<h2 style='margin: auto'>No films found!</h2>`;
       return [];
     }
-    // const page = parseLoadedFilms.slice(
-    //   (p - currentPage) * PER_PAGE,
-    //   (p - currentPage) * PER_PAGE + PER_PAGE
-    // );
     const page = parseLoadedFilms.slice(
       (currentPage - 1) * PER_PAGE,
       (currentPage - 1) * PER_PAGE + PER_PAGE
@@ -74,12 +68,6 @@ export function refreshPage() {
     createMarkup(loadFilms('watched', 1));
   }
 }
-
-// Завантаити фільми
-// currentPage. створити функцію, що примає "сторінку" і робить слайс з масиву
-// currentPage. дадати зміну класу по слухачам
-
-// //Інтерсекшн обзервер та скрол
 
 function onObserve(currentPage, key) {
   createMarkup(loadFilms(key, currentPage));
@@ -106,10 +94,6 @@ function onScroll(entries, observer) {
     if (entry.isIntersecting) {
       currentPage += 1;
 
-      // if (currentPage * PER_PAGE > parsedData.length) {
-      //   observer.unobserve(entry.target);
-      //   return;
-      // }
       onObserve(currentPage, key);
     }
   });

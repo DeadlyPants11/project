@@ -10,34 +10,6 @@ export default class FetchFilms {
     this.searchParams = '';
   }
 
-  //   resetPage() {
-  //     this.currentPage = 1;
-  //   }
-
-  //   decrementPage() {
-  //     this.currentPage -= 1;
-  //   }
-
-  //   incrementPage() {
-  //     this.currentPage += 1;
-  //   }
-
-  //   get page() {
-  //     return this.currentPage;
-  //   }
-
-  //   set page(newPage) {
-  //     this.currentPage = newPage;
-  //   }
-
-  //   get query() {
-  //     return this.searchQuery;
-  //   }
-  //   set query(newQuery) {
-  //     this.lastQuery = this.searchQuery;
-  //     this.searchQuery = newQuery;
-  //   }
-
   async fetchFilms(query = '', page = 1) {
     let url = '';
     if (!query) {
