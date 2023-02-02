@@ -91,7 +91,13 @@ function loadFilms() {
     const getLoadedFilms = localStorage.getItem('CURRENT_FILMS');
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
     const films = parseLoadedFilms.results.results;
-    return films;
+    const getWatchedFilms = localStorage.getItem('watched');
+    const parsedWatchedFilms = JSON.parse(getWatchedFilms);
+    const getQueuedFilms = localStorage.getItem('queue');
+    const parsedQueuedFilms = JSON.parse(getQueuedFilms);
+    const allFilms = films.concat(parsedWatchedFilms, parsedQueuedFilms);
+    return allFilms;
+    // return films;
   } catch (error) {
     console.error('Get state error: ', error.message);
   }
