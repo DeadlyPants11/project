@@ -231,54 +231,54 @@
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
       rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   }
+}
 
-  .iframe__div {
-    position: relative;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5);
+.iframe__div {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.watch-trailer__btn {
+  position: relative;
+  width: 300px;
+  height: 125px;
+
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 125px;
   }
 
-  .watch-trailer__btn {
-    position: relative;
-    width: 300px;
-    height: 125px;
-
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    cursor: pointer;
-
-    @media (min-width: 768px) and (max-width: 1023px) {
-      width: 125px;
-    }
-
-    @media (min-width: 1024px) {
-      width: 136px;
-    }
+  @media (min-width: 1024px) {
+    width: 136px;
   }
+}
 
-  .watch-trailer__btn:hover,
-  .watch-trailer__btn:focus {
-    background-color: var(--accent-color);
-    color: var(--background-color);
-    border: none;
-    transition-duration: var(--animation-duration);
-    transition-timing-function: var(--timing-function);
-  }
+.watch-trailer__btn:hover,
+.watch-trailer__btn:focus {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  border: none;
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--timing-function);
+}
 
-  .trailer-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.trailer-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  .modal-container__img {
-    position: relative;
-  }
+.modal-container__img {
+  position: relative;
 }
