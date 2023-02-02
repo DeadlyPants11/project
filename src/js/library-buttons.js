@@ -45,10 +45,7 @@ function loadFilms(key, currentPage) {
       localRefs.libraryContainer.innerHTML = `<h2 style='margin: auto'>No films found!</h2>`;
       return [];
     }
-    // const page = parseLoadedFilms.slice(
-    //   (p - currentPage) * PER_PAGE,
-    //   (p - currentPage) * PER_PAGE + PER_PAGE
-    // );
+  
     const page = parseLoadedFilms.slice(
       (currentPage - 1) * PER_PAGE,
       (currentPage - 1) * PER_PAGE + PER_PAGE
@@ -98,11 +95,6 @@ function onScroll(entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       currentPage += 1;
-
-      // if (currentPage * PER_PAGE > parsedData.length) {
-      //   observer.unobserve(entry.target);
-      //   return;
-      // }
       onObserve(currentPage, key);
     }
   });

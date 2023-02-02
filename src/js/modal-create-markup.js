@@ -79,8 +79,6 @@ function onCreateMarkup({
   addRefsAndListeners();
 
   closeModalButton.addEventListener('click', onRemoveMarkupModal);
-
-  console.log(`📌  closeModalButton`, closeModalButton);
 }
 
 function onAddMarkupFromDOM(markup) {
