@@ -50,6 +50,7 @@ function loadFilms(key, currentPage) {
       localRefs.libraryContainer.innerHTML = `<h2 style='margin: auto'>No films found!</h2>`;
       return [];
     }
+
     const page = parseLoadedFilms.slice(
       (currentPage - 1) * PER_PAGE,
       (currentPage - 1) * PER_PAGE + PER_PAGE
