@@ -13,6 +13,10 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal {
@@ -22,7 +26,6 @@
   transform: translate(-50%, -50%);
 
   width: 280px;
-  // height: 940px;
 
   position: fixed;
 
@@ -175,7 +178,6 @@
 
 .modal-info__description {
   width: 240px;
-  // height: 260px;
 
   font-size: 12px;
   line-height: 1.66;
@@ -186,43 +188,11 @@
 
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 264px;
-    height: 236px;
   }
   @media (min-width: 1024px) {
     width: 391px;
-    height: 184px;
   }
 }
-
-// .modal-button {
-//   width: 110px;
-//   height: 44px;
-
-//   padding: 0px;
-
-//   border-radius: 5px;
-
-//   background-color: inherit;
-
-//   cursor: pointer;
-
-//   @media (min-width: 768px) and (max-width: 1023px) {
-//     width: 125px;
-//   }
-
-//   @media (min-width: 1024px) {
-//     width: 136px;
-//   }
-// }
-
-// .modal-button:hover,
-// .modal-button:focus {
-//   background-color: var(--accent-color);
-//   color: var(--background-color);
-//   border: none;
-//   transition-duration: var(--animation-duration);
-//   transition-timing-function: var(--timing-function);
-// }
 
 .modal-info__button-list {
   display: flex;
@@ -235,9 +205,6 @@
   }
 }
 
-
-
-
 .modal-button {
   display: flex;
   align-items: center;
@@ -249,12 +216,11 @@
   font-size: 13px;
   font-weight: 500;
   line-height: calc(16 / 12);
-  border: none;
   border-radius: 5px;
   border: 1px solid #000000;
   box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6);
   transition: box-shadow 400ms ease-in, color 400ms ease-in,
-  background-color 400ms ease-in;
+    background-color 400ms ease-in;
 
   &:hover,
   &.added {
@@ -265,15 +231,8 @@
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
       rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   }
-    @media (min-width: 768px) and (max-width: 1023px) {
-      width: 125px;
-    }
-  
-    @media (min-width: 1024px) {
-      width: 136px;
-    }}
 
-// ------------------------------
+
 .iframe__div {
   position: relative;
   height: 100%;
@@ -295,6 +254,7 @@
   z-index: 2;
   cursor: pointer;
 
+
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 125px;
   }
@@ -304,19 +264,6 @@
   }
 }
 
-// .trailer-btn-circle {
-//   <div class="trailer-btn-circle"></div>
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   width: 0;
-//   height: 0;
-//   border: 0 solid transparent;
-//   border-bottom-width: 42px;
-//   border-top-width: 42px;
-//   border-left: 72px solid black;
-// }
 
 .watch-trailer__btn:hover,
 .watch-trailer__btn:focus {
@@ -334,8 +281,7 @@
   transform: translate(-50%, -50%);
 }
 
+
 .modal-container__img {
   position: relative;
 }
-
-

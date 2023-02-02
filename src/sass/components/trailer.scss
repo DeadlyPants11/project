@@ -32,11 +32,20 @@
 }
 
 .iframe__div {
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 515px;
+    height: 340px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 760px;
+    height: 515px;
+  }
 }
 
 .button-close_trailer:hover .button-close__icon {
@@ -81,8 +90,4 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.modal-container__img {
-  position: relative;
 }

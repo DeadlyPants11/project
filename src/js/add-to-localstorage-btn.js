@@ -120,11 +120,7 @@ function delFilmFromStorage(key, id) {
   try {
     const getLoadedFilms = localStorage.getItem(key);
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
-    console.log('parse');
-    console.log(parseLoadedFilms);
     const newFilms = parseLoadedFilms.filter(obj => obj.id != id);
-    console.log('new');
-    console.log(newFilms);
     localStorage.setItem(key, JSON.stringify(newFilms));
   } catch (error) {
     console.error('Get state error: ', error.message);
