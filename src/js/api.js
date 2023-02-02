@@ -11,9 +11,7 @@ async function onGetFilmDataByID(id) {
       throw new Error('This movie is not available');
     }
     return response;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 // -----------------------------------------------------------
@@ -26,7 +24,5 @@ export async function onGetFilmVideoByID(id) {
       throw new Error('This movie is not available');
     }
     return response;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }

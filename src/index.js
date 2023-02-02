@@ -6,6 +6,6 @@ import './js/on-search.js';
 import './js/modal-open-close';
 import './js/api';
 
-import './js/modat-team';
+import './js/modal-team';
 
 import './js/button-up';

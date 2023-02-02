@@ -23,7 +23,6 @@ getGenresArray().then(resp => {
 function getGenresName(array) {
   const saveGenresName = localStorage.getItem(GENRES_NAME);
   const genresNameData = JSON.parse(saveGenresName);
-  // console.log(genresNameData);
   for (const genName of genresNameData) {
     for (let i = 0; i < array.length; i += 1) {
       if (array[i] === genName.id) {

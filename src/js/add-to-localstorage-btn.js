@@ -91,7 +91,13 @@ function loadFilms() {
     const getLoadedFilms = localStorage.getItem('CURRENT_FILMS');
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
     const films = parseLoadedFilms.results.results;
-    return films;
+    const getWatchedFilms = localStorage.getItem('watched');
+    const parsedWatchedFilms = JSON.parse(getWatchedFilms);
+    const getQueuedFilms = localStorage.getItem('queue');
+    const parsedQueuedFilms = JSON.parse(getQueuedFilms);
+    const allFilms = films.concat(parsedWatchedFilms, parsedQueuedFilms);
+    return allFilms;
+    // return films;
   } catch (error) {
     console.error('Get state error: ', error.message);
   }
@@ -114,11 +120,7 @@ function delFilmFromStorage(key, id) {
   try {
     const getLoadedFilms = localStorage.getItem(key);
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
-    console.log('parse');
-    console.log(parseLoadedFilms);
     const newFilms = parseLoadedFilms.filter(obj => obj.id != id);
-    console.log('new');
-    console.log(newFilms);
     localStorage.setItem(key, JSON.stringify(newFilms));
   } catch (error) {
     console.error('Get state error: ', error.message);

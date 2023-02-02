@@ -7,4 +7,6 @@ import './js/library-modal-open-close';
 import './js/api';
 
 import './js/button-up';
-import './js/modat-team';
+
+import './js/modal-team';
+

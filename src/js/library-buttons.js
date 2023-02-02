@@ -22,8 +22,12 @@ function onBtnWatchedClick() {
   localRefs.btnQueue.classList.remove('activeBtn');
   filmContainer.innerHTML = '';
   currentPage = 1;
+
   createMarkup(loadFilms('watched', currentPage));
-  observer.observe(document.querySelector('.film-list__item:last-child'));
+  const li = document.querySelector('.film-list__item:last-child');
+  if (li) {
+    observer.observe(li);
+  }
 }
 
 function onBtnQueueClick() {
@@ -32,20 +36,21 @@ function onBtnQueueClick() {
   filmContainer.innerHTML = '';
   currentPage = 1;
   createMarkup(loadFilms('queue', currentPage));
-  observer.observe(document.querySelector('.film-list__item:last-child'));
+  const li = document.querySelector('.film-list__item:last-child');
+  if (li) {
+    observer.observe(li);
+  }
 }
 
 function loadFilms(key, currentPage) {
-  console.log('load');
   try {
     const getLoadedFilms = localStorage.getItem(key);
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
-    console.log(!parseLoadedFilms);
     if (!parseLoadedFilms || parseLoadedFilms.length == 0) {
       localRefs.libraryContainer.innerHTML = `<h2 style='margin: auto'>No films found!</h2>`;
       return [];
     }
-  
+
     const page = parseLoadedFilms.slice(
       (currentPage - 1) * PER_PAGE,
       (currentPage - 1) * PER_PAGE + PER_PAGE
@@ -64,12 +69,6 @@ export function refreshPage() {
     createMarkup(loadFilms('watched', 1));
   }
 }
-
-// Завантаити фільми
-// currentPage. створити функцію, що примає "сторінку" і робить слайс з масиву
-// currentPage. дадати зміну класу по слухачам
-
-// //Інтерсекшн обзервер та скрол
 
 function onObserve(currentPage, key) {
   createMarkup(loadFilms(key, currentPage));
@@ -95,6 +94,7 @@ function onScroll(entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       currentPage += 1;
+
       onObserve(currentPage, key);
     }
   });
