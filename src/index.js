@@ -9,3 +9,4 @@ import './js/api';
 import './js/modal-team';
 
 import './js/button-up';
+import './js/dark-mode';

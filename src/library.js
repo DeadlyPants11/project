@@ -10,3 +10,4 @@ import './js/button-up';
 
 import './js/modal-team';
 
+import './js/dark-mode';
