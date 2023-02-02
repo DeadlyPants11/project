@@ -5,7 +5,9 @@ import { onCreateMarkup } from './modal-create-markup';
 export { onCloseModal };
 import { refreshPage } from './library-buttons';
 import { delListeners } from './add-to-localstorage-btn';
+
 import { openTrailer } from './trailer';
+
 
 const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
 
