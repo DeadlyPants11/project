@@ -5,7 +5,8 @@ import { onCreateMarkup } from './modal-create-markup';
 export { onCloseModal };
 
 // ------------------------------------------------------
-import { onGetFilmVideoByID } from './api';
+
+import { openTrailer } from './trailer';
 // -----------------------------------------------------
 
 import { delListeners } from './add-to-localstorage-btn';
@@ -87,79 +88,6 @@ function onOpenModal(e) {
 
 // --------------------------------------------------------------------------------
 
-function openTrailer(filmId) {
-  onGetFilmVideoByID(filmId)
-    .then(data => {
-      return data.data;
-    })
-    // .then(trailer => {
-    //   if (trailer.length !== 0) {
-    //     return showOpenTrailer(trailer[0].key);
-    //   }
-    // });
-
-    .then(data => {
-      createTrailerCard(data);
-    });
-}
-
-// function showOpenTrailer(videoTrailer) {
-//   refs.trailer.setAttribute(
-//     'src',
-//     `https://www.youtube.com/embed/${videoTrailer}`
-//   );
-// }
-
-function createTrailerCard(data) {
-  const videoArr = [];
-  const trailerArr = data.results;
-  trailerArr.forEach(results => {
-    videoArr.push(results);
-    // console.log(videoArr);
-    // console.log(results);
-  });
-  const findByType = videoArr.find(e => e.type === 'Trailer');
-  console.log(findByType);
-
-  const key = Object.values(findByType);
-  // console.log(key[3]);
-  const name = Object.values(findByType);
-  // console.log(name[2]);
-
-  const markupTrailer = `<div class="iframe__div">
-              <button data-modal-close type="button" class="button-close">
-              <svg class="button-close__icon" width="14" height="14">
-              <use href="${refs.IconCloseHref}"></use>
-              </svg>
-              </button>
-              <iframe
-                  class="iframe-video"
-                  width="760" height="515"
-                  src="https://www.youtube.com/embed/${key[3]}"
-                  title="${name[2]}" frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write;
-                  encrypted-media; gyroscope; picture-in-picture;
-                  web-share" allowfullscreen>
-                  </iframe></div>`;
-
-  refs.backdrop.innerHTML = markupTrailer;
-
-  let closeModalButton =
-    refs.backdrop.getElementsByClassName('button-close')[0];
-  closeModalButton.addEventListener('click', onCloseModal);
-  closeModalButton.addEventListener('click', onRemoveMarkupModal);
-
-  // function onRemoveMarkupModal() {
-  //   refs.backdrop.innerHTML = ` `;
-  // }
-}
-
-// ===============================================================
-
-function onRemoveMarkupModal() {
-  refs.backdrop.innerHTML = ` `;
-}
-
 function onCloseModal() {
   delListeners();
 
@@ -179,38 +107,3 @@ function onClickBackdrop(e) {
     onCloseModal();
   }
 }
-
-// if (data.results.length > 0) {
-//   console.log(data.results);
-//   var videoArr = [];
-//   const filmRes = data.results;
-
-//   filmRes.forEach(({ name, key, type }) => {
-//     // filmRes.find(item.id);
-//     if (type === 'Trailer') {
-//       videoArr.push(
-//         `<div class="iframe__div ">
-//             <button data-modal-close type="button" class="button-close">
-//             <svg class="button-close__icon" width="14" height="14">
-//             <use href="${refs.IconCloseHref}"></use>
-//             </svg>
-//             </button>
-//             <iframe
-//                 class="iframe-video"
-//                 width="760" height="515"
-//                 src="https://www.youtube.com/embed/${key}"
-//                 title="${name}" frameborder="0"
-//                 allow="accelerometer; autoplay; clipboard-write;
-//                 encrypted-media; gyroscope; picture-in-picture;
-//                 web-share" allowfullscreen>
-//                 </iframe></div>`
-//       );
-//     }
-//   });
-
-// refs.backdrop.innerHTML = arrayFor.join('');
-
-// let closeModalButton =
-//   refs.backdrop.getElementsByClassName('button-close')[0];
-// closeModalButton.addEventListener('click', onCloseModal);
-// closeModalButton.addEventListener('click', onRemoveMarkupModal);
