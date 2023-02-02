@@ -1,0 +1,88 @@
+.iframe-video {
+  position: relative;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 515px;
+    height: 340px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 760px;
+    height: 515px;
+  }
+}
+
+.button-close_trailer {
+  position: absolute;
+  top: 8%;
+  right: 10%;
+  width: 35px;
+  height: 35px;
+  padding: 0px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  fill: #ffffff;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    top: 8%;
+  }
+
+  @media (min-width: 1024px) {
+    top: 8%;
+  }
+}
+
+.iframe__div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.button-close_trailer:hover .button-close__icon {
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--timing-function);
+  fill: var(--accent-color);
+}
+
+.watch-trailer__btn {
+  width: 100px;
+  height: 100px;
+
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 125px;
+    height: 125px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.watch-trailer__btn:hover,
+.watch-trailer__btn:focus {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  border: none;
+  transition-duration: var(--animation-duration);
+  transition-timing-function: var(--timing-function);
+}
+
+.trailer-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-container__img {
+  position: relative;
+}

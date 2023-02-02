@@ -6,6 +6,9 @@ export { onCloseModal };
 import { refreshPage } from './library-buttons';
 import { delListeners } from './add-to-localstorage-btn';
 
+import { openTrailer } from './trailer';
+
+
 const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
 
 refs.filmContainer.addEventListener('click', onOpenModal);
@@ -60,6 +63,9 @@ function onOpenModal(e) {
         data.overview = 'Description not found';
       }
       onCreateMarkup(data);
+      document.getElementById(filmId).addEventListener('click', () => {
+        openTrailer(filmId);
+      });
     });
 }
 
