@@ -1,32 +1,30 @@
-@media screen and (min-width: 320px) {
-  .footer {
-    background: #f7f7f7;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.footer {
+  background: #f7f7f7;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  .text-footer {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14;
-    align-items: center;
-    text-align: center;
-    color: #545454;
-  }
+.text-footer {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  align-items: center;
+  text-align: center;
+  color: #545454;
+}
 
-  .up {
-    margin-bottom: 10px;
-  }
+.up {
+  margin-bottom: 10px;
+}
 
-  .heart {
-    background: #ff6b08;
-    width: 14px;
-    height: 12.75px;
-  }
+.heart {
+  background: #ff6b08;
+  width: 14px;
+  height: 12.75px;
 }
 
 @media screen and (min-width: 768px) {

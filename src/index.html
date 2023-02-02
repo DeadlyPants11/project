@@ -1,215 +1,170 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Filmoteka</title>
-    <link rel="icon" href="/src/images/movies.ico" type="image/icon" />
-    <link rel="stylesheet" href="./sass/index.scss" />
-  </head>
 
-  <body>
-    <header class="header">
-      <div class="container header__container">
-        <a href="./index.html" class="logo__link link">
-          <svg class="logo__icon" width="20" height="20">
-            <use href="./images/icon.svg#icon-filmmoteka-1"></use>
-          </svg>
-          Filmoteka
-        </a>
-        <nav class="navigation">
-          <ul class="navigation__list">
-            <li class="navigation__item list">
-              <a
-                href="./index.html"
-                class="navigation__link link navigation__link--active"
-                >HOME</a
-              >
-            </li>
-            <li class="navigation__item list">
-              <a href="./library.html" class="navigation__link link"
-                >MY LIBRARY</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="container search__container">
-        <form class="search__form">
-          <div class="form__wrap">
-            <input
-              type="text"
-              name="name"
-              class="form__input"
-              id="name"
-              placeholder="Movie search"
-            />
-            <button class="form__btn">
-              <svg class="form__icon" width="12" height="12">
-                <use href="./images/icon.svg#icon-search"></use>
-              </svg>
-            </button>
-          </div>
-        </form>
-        <p class="container__notification"></p>
-      </div>
-    </header>
-    <main>
-      <section class="section">
-        <ul class="container film__container"></ul>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filmoteka</title>
+  <link rel="icon" href="/src/images/movies.ico" type="image/icon" />
+  <link rel="stylesheet" href="./sass/index.scss" />
+</head>
 
-      <!-- Section pagination -->
-      <section class="pagination-section">
-        <div class="container">
-          <h2 class="visually-hidden">Pagination</h2>
-          <ul class="pagination pagination-container"></ul>
-        </div>
-      </section>
 
-      <!-- Add loader and preloader -->
-      <div class="preloader-wrapper">
-        <div class="preloader"></div>
-      </div>
-      <div class="loader visually-hidden"></div>
-    </main>
-    <footer class="footer">
-      <p class="text-footer up">© 2020 | All Rights Reserved |</p>
-      <p class="text-footer">
-        Developed with
-        <img class="heart" src="./images/Vector.jpg" alt="heart" />
-        by
-        <a class="text-footer" data-modal-open href="#"> GoIT Students </a>
-      </p>
-    </footer>
-
-    <div class="backdrop-footer is-hidden" data-modal>
-      <div class="modal-footer">
-        <button type="button" class="modal-close-btn-footer" data-modal-close>
-          <svg class="modal-close-icon-footer">
-            <use href="./images/sprite.svg#icon-close"></use>
-          </svg>
-        </button>
-        <h3 class="team">11 Angry Developer</h3>
-        <ul class="team-list">
-          <li class="team-list_li">
-            <img
-              class="image-team"
-              src="./images/photo_2023-02-01_20-56-38.jpg"
-              alt=""
-            />
-            <a class="link-team" href="https://github.com/DeadlyPants11">
-              <h2 class="name-team">Ostryanin Rostislav</h1>
-            </a>
-            <p class="title">TeamLead</p>
+<body>
+  <header class="header">
+    <div class="container header__container">
+      <a href="./index.html" class="logo__link link">
+        <svg class="logo__icon" width="24" height="24">
+          <use href="./images/icon.svg#icon-filmmoteka-1"></use>
+        </svg>
+        <span class="logo__text">Filmoteka</span>
+      </a>
+      <nav class="navigation">
+        <ul class="navigation__list">
+          <li class="navigation__item list">
+            <a href="./index.html" class="navigation__link link navigation__link--active">HOME</a>
           </li>
-          <li class="team-list_li">
-            <img
-              class="image-team"
-              src="./images/photo_2023-01-30_21-18-21.jpg"
-              alt=""
-            />
-            <a class="link-team" href="https://github.com/ADIKryvonos">
-              <h2 class="name-team">Vladyslav Kryvonos</h1>
-            </a>
-            <p class="title">ScrumMaster</p>
-          </li>
-          <li class="team-list_li">
-            <img
-              class="image-team"
-              src="./images/photo_2023-01-30_22-39-49.jpg"
-              alt=""
-            />
-            <a class="link-team" href="https://github.com/NZAlona">
-              <h2 class="name-team">Alona Chmovzh</h1>
-            </a>
-            <p class="title">Developer</p>
-          </li>
-          <li class="team-list_li">
-            <img class="image-team" src="./images/Popov Vadym.jpg" alt="" />
-            <a class="link-team" href="https://github.com/VadymPopov">
-              <h2 class="name-team">Vadym Popov</h1>
-            </a>
-            <p class="title">Developer</p>
-          </li>
-          <li class="team-list_li">
-            <img
-              class="image-team"
-              src="./images/photo_2023-02-01_19-42-09.jpg"
-              alt=""
-            />
-            <a class="link-team" href="https://github.com/NazariiYovenko">
-              <h2 class="name-team">Nazarii Yovenko</h1>
-            </a>
-            <p class="title">Developer</p>
-          </li>
-          <li class="team-list_li">
-            <img
-              class="image-team"
-              src="./images/photo_2023-02-01_19-43-17.jpg"
-              alt=""
-            />
-            <a class="link-team" href="https://github.com/Murlykin">
-              <h2 class="name-team">Andrii Murlykin</h1>
-            </a>
-            <p class="title">Developer</p>
-          </li>
-          <li class="team-list_li">
-            <img class="image-team" src="./images/IMG_2008.jpg" alt="" />
-            <a class="link-team" href="https://github.com/Makswaterson">
-              <h2 class="name-team">Maksym Lukianenko</h1>
-            </a>
-            <p class="title">Developer</p>
-          </li>
-          <li class="team-list_li">
-            <img
-              class="image-team"
-              src="./images/photo_2023-02-01_21-13-49.jpg"
-              alt=""
-            />
-            <a class="link-team" href="https://github.com/Evgen-Zaharevich">
-              <h2 class="name-team">Evgen Zaharevich</h1>
-            </a>
-            <p class="title">Developer</p>
-          </li>
-          <li class="team-list_li">
-            <img
-              class="image-team"
-              src="./images/photo_2023-01-31_19-26-53.jpg"
-              alt=""
-            />
-            <a class="link-team" href="https://github.com/Viktorr22">
-              <h2 class="name-team">Viktor Dub</h1>
-            </a>
-            <p class="title">Developer</p>
-          </li>
-          <li class="team-list_li">
-            <img
-              class="image-team"
-              src="./images/photo_2023-02-01_23-35-10.jpg"
-              alt=""
-            />
-            <a class="link-team" href="https://github.com/IvanBayern">
-              <h2 class="name-team">Ivan Gosenco</h1>
-            </a>
-            <p class="title">Developer</p>
-          </li>
-          <li class="team-list_li">
-            <img
-              class="image-team"
-              src="./images/no-image-available.jpg"
-              alt=""
-            />
-            <a class="link-team" href="https://github.com/FlowMaster83s">
-              <h2 class="name-team">Serhii Kolesnyk</h1>
-            </a>
-            <p class="title">Developer</p>
+          <li class="navigation__item list">
+            <a href="./library.html" class="navigation__link link">MY LIBRARY</a>
           </li>
         </ul>
-      </div>
+      </nav>
     </div>
+    <div class="container search__container">
+      <form class="search__form">
+        <div class="form__wrap">
+          <input type="text" name="name" class="form__input" id="name" placeholder="Movie search" />
+          <button class="form__btn">
+            <svg class="form__icon" width="12" height="12">
+              <use href="./images/icon.svg#icon-search"></use>
+            </svg>
+          </button>
+        </div>
+      </form>
+      <p class="container__notification"></p>
+    </div>
+  </header>
+  <main>
+    <section class="section">
+      <ul class="container film__container"></ul>
+    </section>
 
-    <include src="./partials/modal.html"></include>
-    <script src="./index.js" type="module"></script>
-  </body>
+    <!-- Section pagination -->
+    <section class="pagination-section">
+      <div class="container">
+        <h2 class="visually-hidden">Pagination</h2>
+        <ul class="pagination pagination-container"></ul>
+      </div>
+    </section>
+
+    <!-- Add loader and preloader -->
+    <div class="preloader-wrapper">
+      <div class="preloader"></div>
+    </div>
+    <div class="loader visually-hidden"></div>
+  </main>
+  <footer class="footer">
+    <p class="text-footer up">© 2020 | All Rights Reserved |</p>
+    <p class="text-footer">
+      Developed with
+      <img class="heart" src="./images/Vector.jpg" alt="heart" />
+      by
+      <a class="text-footer" data-modal-open href="#"> GoIT Students </a>
+    </p>
+  </footer>
+
+  <div class="backdrop-footer is-hidden" data-modal>
+    <div class="modal-footer">
+      <button type="button" class="modal-close-btn-footer" data-modal-close>
+        <svg class="modal-close-icon-footer">
+          <use href="./images/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
+      <h3 class="team">11 Angry Developer</h3>
+      <ul class="team-list">
+        <li class="team-list_li">
+          <img class="image-team" src="./images/photo_2023-02-01_20-56-38.jpg" alt="" />
+          <a class="link-team" href="https://github.com/DeadlyPants11">
+            <h1 class="name-team">Ostryanin Rostislav</h1>
+          </a>
+          <p class="title">TeamLead</p>
+        </li>
+        <li class="team-list_li">
+          <img class="image-team" src="./images/photo_2023-01-30_21-18-21.jpg" alt="" />
+          <a class="link-team" href="#">
+            <h1 class="name-team">Vladyslav Kryvonos</h1>
+          </a>
+          <p class="title">ScrumMaster</p>
+        </li>
+        <li class="team-list_li">
+          <img class="image-team" src="./images/photo_2023-01-30_22-39-49.jpg" alt="" />
+          <a class="link-team" href="https://github.com/NZAlona">
+            <h1 class="name-team">Alona Chmovzh</h1>
+          </a>
+          <p class="title">Developer</p>
+        </li>
+        <li class="team-list_li">
+          <img class="image-team" src="./images/Popov Vadym.jpg" alt="" />
+          <a class="link-team" href="https://github.com/VadymPopov">
+            <h1 class="name-team">Vadym Popov</h1>
+          </a>
+          <p class="title">Developer</p>
+        </li>
+        <li class="team-list_li">
+          <img class="image-team" src="./images/photo_2023-02-01_19-42-09.jpg" alt="" />
+          <a class="link-team" href="https://github.com/NazariiYovenko">
+            <h1 class="name-team">Nazarii Yovenko</h1>
+          </a>
+          <p class="title">Developer</p>
+        </li>
+        <li class="team-list_li">
+          <img class="image-team" src="./images/photo_2023-02-01_19-43-17.jpg" alt="" />
+          <a class="link-team" href="https://github.com/Murlykin">
+            <h1 class="name-team">Andrii Murlykin</h1>
+          </a>
+          <p class="title">Developer</p>
+        </li>
+        <li class="team-list_li">
+          <img class="image-team" src="./images/IMG_2008.jpg" alt="" />
+          <a class="link-team" href="https://github.com/Makswaterson">
+            <h1 class="name-team">Maksym Lukianenko</h1>
+          </a>
+          <p class="title">Developer</p>
+        </li>
+        <li class="team-list_li">
+          <img class="image-team" src="./images/photo_2023-02-01_21-13-49.jpg" alt="" />
+          <a class="link-team" href="https://github.com/Evgen-Zaharevich">
+            <h1 class="name-team">Evgen Zaharevich</h1>
+          </a>
+          <p class="title">Developer</p>
+        </li>
+        <li class="team-list_li">
+          <img class="image-team" src="./images/photo_2023-01-31_19-26-53.jpg" alt="" />
+          <a class="link-team" href="https://github.com/Viktorr22">
+            <h1 class="name-team">Viktor Dub</h1>
+          </a>
+          <p class="title">Developer</p>
+        </li>
+        <li class="team-list_li">
+          <img class="image-team" src="./images/photo_2023-02-01_23-35-10.jpg" alt="" />
+          <a class="link-team" href="https://github.com/IvanBayern">
+            <h1 class="name-team">Ivan Gosenco</h1>
+          </a>
+          <p class="title">Developer</p>
+        </li>
+        <li class="team-list_li">
+          <img class="image-team" src="./images/no-image-available.jpg" alt="" />
+          <a class="link-team" href="https://github.com/FlowMaster83s">
+            <h1 class="name-team">Serhii Kolesnyk</h1>
+          </a>
+          <p class="title">Developer</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <include src="./partials/modal.html"></include>
+  <script src="./index.js" type="module"></script>
+</body>
+
 </html>

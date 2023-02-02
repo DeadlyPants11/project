@@ -1,10 +1,14 @@
 .header {
-  background-image: url(/src/images/header-tab.jpg);
+  background-image: url(/src/images/abstract-background-with-red-lines-mobile.jpg);
   height: 216px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   padding: 40px 0 80px 0;
+}
+
+.logo__text {
+  display: none;
 }
 
 .logo__link {
@@ -16,7 +20,7 @@
 
 .header__container {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -25,7 +29,7 @@
 }
 
 .navigation__item:last-child {
-  margin-left: 39px;
+  margin-left: 40px;
 }
 
 .navigation__link {
@@ -49,7 +53,7 @@
 }
 
 .search__container {
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .search__form {
@@ -111,8 +115,31 @@ input:hover::-webkit-input-placeholder {
   margin-top: 20px;
   font-family: 'Roboto';
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.14;
   text-align: center;
   color: #ff001b;
+}
+
+@media screen and (min-width: 768px) {
+  .logo__text {
+    display: block;
+  }
+  .logo__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .search__container {
+    margin-top: 40px;
+  }
+  .header {
+    background-image: url(/src/images/header-tab.jpg);
+  }
+}
+
+@media screen and (min-width: 1281px) {
+  .header {
+    background-image: url(/src/images/abstract-background-with-red-lines-desktop.jpg);
+  }
 }
