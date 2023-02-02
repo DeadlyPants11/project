@@ -13,8 +13,8 @@
 
 .button-close_trailer {
   position: absolute;
-  top: 8%;
-  right: 10%;
+  top: 30%;
+  right: 0%;
   width: 35px;
   height: 35px;
   padding: 0px;
@@ -23,11 +23,13 @@
   cursor: pointer;
   fill: #ffffff;
   @media (min-width: 768px) and (max-width: 1023px) {
-    top: 8%;
+    top: -10%;
+    right: -10%;
   }
 
   @media (min-width: 1024px) {
-    top: 8%;
+    top: -10%;
+    right: -10%;
   }
 }
 
