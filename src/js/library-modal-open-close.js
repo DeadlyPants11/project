@@ -4,7 +4,7 @@ import { refs } from './refs';
 import { onCreateMarkup } from './modal-create-markup';
 export { onCloseModal };
 import { refreshPage } from './library-buttons';
-import {delListeners} from './add-to-localstorage-btn'
+import { delListeners } from './add-to-localstorage-btn';
 
 const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
 
@@ -64,8 +64,8 @@ function onOpenModal(e) {
 }
 
 function onCloseModal() {
-    delListeners();
-    refreshPage()
+  delListeners();
+  refreshPage();
   window.removeEventListener('keydown', onEscKeyPress);
   refs.backdrop.classList.add('visually-hidden');
 }

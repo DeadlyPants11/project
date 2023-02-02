@@ -40,6 +40,11 @@ function loadFilms(key, currentPage) {
   try {
     const getLoadedFilms = localStorage.getItem(key);
     const parseLoadedFilms = JSON.parse(getLoadedFilms);
+    console.log(!parseLoadedFilms);
+    if (!parseLoadedFilms || parseLoadedFilms.length == 0) {
+      localRefs.libraryContainer.innerHTML = `<h2 style='margin: auto'>No films found!</h2>`;
+      return [];
+    }
     // const page = parseLoadedFilms.slice(
     //   (p - currentPage) * PER_PAGE,
     //   (p - currentPage) * PER_PAGE + PER_PAGE
@@ -57,9 +62,9 @@ function loadFilms(key, currentPage) {
 export function refreshPage() {
   localRefs.libraryContainer.innerHTML = '';
   if (localRefs.btnQueue.classList.contains('activeBtn')) {
-    createMarkup(loadFilms('queue', currentPage));
+    createMarkup(loadFilms('queue', 1));
   } else {
-    createMarkup(loadFilms('watched', currentPage));
+    createMarkup(loadFilms('watched', 1));
   }
 }
 
