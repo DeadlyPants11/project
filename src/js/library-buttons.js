@@ -22,8 +22,12 @@ function onBtnWatchedClick() {
   localRefs.btnQueue.classList.remove('activeBtn');
   filmContainer.innerHTML = '';
   currentPage = 1;
+
   createMarkup(loadFilms('watched', currentPage));
-  observer.observe(document.querySelector('.film-list__item:last-child'));
+  const li = document.querySelector('.film-list__item:last-child');
+  if (li) {
+    observer.observe(li);
+  }
 }
 
 function onBtnQueueClick() {
@@ -32,7 +36,10 @@ function onBtnQueueClick() {
   filmContainer.innerHTML = '';
   currentPage = 1;
   createMarkup(loadFilms('queue', currentPage));
-  observer.observe(document.querySelector('.film-list__item:last-child'));
+  const li = document.querySelector('.film-list__item:last-child');
+  if (li) {
+    observer.observe(li);
+  }
 }
 
 function loadFilms(key, currentPage) {
